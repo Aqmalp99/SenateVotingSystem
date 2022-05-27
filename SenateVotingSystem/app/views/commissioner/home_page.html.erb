@@ -1,4 +1,18 @@
-<h1>Commissioner#home_page</h1>
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="<%= admin_voting_results_path %>">Electoral Commissioner</a>
+  <div>
+  <%= link_to admin_voting_results_path, class: "btn btn-outline-primary" do %>
+  <i>Add Candidate</i>
+  <%end %>
+  <%= link_to admin_voting_results_path, class: "btn btn-outline-primary" do %>
+   <i>Exclude Candidate</i>
+  <%end %>
+  <%= link_to admin_voting_results_path, class: "btn btn-outline-danger" do %>
+    <i >Recount</i>
+  <%end %>
+  </div>
+</nav>
+
 
 <div><%= pie_chart @party_votes %></div>
 
