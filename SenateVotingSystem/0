@@ -1,0 +1,3 @@
+      invoke  active_record
+      remove    db/migrate/20220527072746_add_totalvotes_to_candidates.rb
+      create    db/migrate/20220527073450_add_totalvotes_to_candidates.rb
