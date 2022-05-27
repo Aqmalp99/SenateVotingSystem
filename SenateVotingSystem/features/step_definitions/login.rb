@@ -14,6 +14,6 @@ Then(/^I should be taken to voter homepage$/) do
 end
 
 Then(/^I should be taken to election commissioner homepage$/) do
-  visit "/election_commissioner"
+  visit "/admin/voting-results"
   #pending
 end
