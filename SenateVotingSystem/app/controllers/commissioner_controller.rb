@@ -13,6 +13,6 @@ class CommissionerController < ApplicationController
       @party_votes[party.to_sym]=Candidate.where(party: party).sum(:totalvotes)
     end
 
-
+    @candidates=Candidate.order(totalvotes: :desc).limit(10)
   end
 end
