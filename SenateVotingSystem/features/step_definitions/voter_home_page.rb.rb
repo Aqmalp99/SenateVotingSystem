@@ -14,6 +14,6 @@ Then(/^I should see a "([^"]*)" button$/) do |vote_now_button|
 end
 
 Then(/^I should be taken to voting ballot page$/) do
-  visit "/voter/ballot_page"
+  visit "/voter/ballot-page"
   #pending
 end
