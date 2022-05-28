@@ -1,2 +1,17 @@
-<h1>Voter#index</h1>
-<p>Find me in app/views/voter/index.html.erb</p>
+<h1 style="text-align: center; margin: 1% 0% 5% 0%; font-weight: bold">SENATE VOTING APPLICATION</h1>
+
+<div class="voter_home_page_div">
+    <h4 style="text-align: left; padding: 2%">Voting instructions</h4>
+  <pre>
+   PLEASE READ THE BELOW INFORMATION CAREFULLY.
+   When you click the below "Vote now" button, you will be taken to the ballot page.
+   You can either cast votes by voting for parties ("above the line") or for individual candidates ("below the line").
+   NOTE: You can only vote above the line OR below the line, not both.
+   If you are voting above the line, you MUST have AT LEAST 6 preferences (1 being highest preference).
+   If you are voting below the line, you MUST have AT LEAST 12 preferences (1 being highest preference).
+   Once you are happy with your preferences, click "Submit Vote".
+  </pre>
+</div>
+<%= button_to "Vote now", voter_ballot_page_path, method: "get", class: "btn btn-primary vote_now_button" %>
+
+
