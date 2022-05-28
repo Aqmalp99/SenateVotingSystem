@@ -1,2 +1,20 @@
-<h1>Candidates#add</h1>
-<p>Find me in app/views/candidates/add.html.erb</p>
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="<%= admin_voting_results_path %>">Electoral Commissioner</a>
+  <div>
+    <%= link_to admin_voting_results_path, class: "btn btn-outline-primary" do %>
+      <i>Add Candidate</i>
+    <%end %>
+    <%= link_to admin_voting_results_path, class: "btn btn-outline-primary" do %>
+      <i>Exclude Candidate</i>
+    <%end %>
+    <%= link_to admin_voting_results_path, class: "btn btn-outline-danger" do %>
+      <i >Recount</i>
+    <%end %>
+  </div>
+</nav>
+
+
+<%= form_with model: @candidate, url: add_candidates_path, method: :post, local: true, data: { turbo: false }, scope: :candidate do |form| %>
+  <%= render "#{@candidate.current_step}_step", :form => form%>
+  <%= submit_tag 'Next' %>
+<% end %>
