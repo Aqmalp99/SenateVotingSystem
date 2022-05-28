@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   get '/login', to: 'login#index'
 
+  get '/candidates', to: redirect('/candidates/add')
+  get '/candidates/add', to: 'candidates#add', as: 'add_candidates'
   get 'candidates/home_page'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
