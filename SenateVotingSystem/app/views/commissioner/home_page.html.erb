@@ -1,0 +1,41 @@
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="<%= admin_voting_results_path %>">Electoral Commissioner</a>
+  <div>
+  <%= link_to admin_voting_results_path, class: "btn btn-outline-primary" do %>
+  <i>Add Candidate</i>
+  <%end %>
+  <%= link_to admin_voting_results_path, class: "btn btn-outline-primary" do %>
+   <i>Exclude Candidate</i>
+  <%end %>
+  <%= link_to admin_voting_results_path, class: "btn btn-outline-danger" do %>
+    <i >Recount</i>
+  <%end %>
+  </div>
+</nav>
+
+
+<div><%= pie_chart @party_votes %></div>
+
+<br>
+<div>
+  <p style="text-align: center; font-family: Georgia; font-size: 25px; margin-block-end: 0.2em;" >Top 10 Candidates</p>
+<table  style="width:50%; border: 1px solid black; margin: 0 auto; ">
+  <thead style="background-color: darkgrey;">
+  <tr>
+    <th>Name</th>
+    <th>Party Group</th>
+    <th>Points</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <%  @candidates.each do |candidate| %>
+  <tr>
+    <td style="padding: 5px;"> <%= candidate.first_name + " "+ candidate.surname%></td>
+    <td> <%= candidate.party %></td>
+    <td> <%= candidate.totalvotes %></td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
+</div>

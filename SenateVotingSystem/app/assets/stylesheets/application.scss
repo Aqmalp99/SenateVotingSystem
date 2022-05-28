@@ -1,0 +1,19 @@
+
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+
+.login_page_div {
+  text-align: center;
+  margin-top: 5%;
+}
+
+button {
+  padding: 1%;
+  font-size: 100%;
+  width: 20%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  background-color: green;
+  color: whitesmoke;
+  border: none;
+}
