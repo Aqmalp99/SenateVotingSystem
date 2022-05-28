@@ -3,13 +3,8 @@ Given(/^I am on the voter home page$/) do
   #pending
 end
 
-Then(/^I should see "([^"]*)" text$/) do |welcome_text|
-  expect(page).to have_content(welcome_text)
-  #pending
-end
-
 Then(/^I should see "([^"]*)" information box$/) do |info_box|
-  page.find_by_id(info_box).tag_name
+  expect(page).to have_content(info_box)
   #pending
 end
 
