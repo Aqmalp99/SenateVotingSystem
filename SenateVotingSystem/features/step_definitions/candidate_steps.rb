@@ -1,3 +1,10 @@
+Given(/^The following candidates are in the database:$/) do |table|
+  # table is a table.hashes.keys # => [:title, :rating, :director, :release_date, :description]
+  table.hashes.each do |c|
+    Candidate.create(c)
+  end
+end
+
 Given(/^I am on the add candidate page$/) do
   visit add_candidates_path
 end
