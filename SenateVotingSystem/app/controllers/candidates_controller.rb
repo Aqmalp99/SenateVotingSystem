@@ -16,9 +16,6 @@ class CandidatesController < ApplicationController
     @candidate.next_step
     session[:candidate_step] = @candidate.current_step
     @other_candidates = Candidate.where('party = ?', @candidate.party) if session[:candidate_step] == 'order'
-    if !(@other_candidates.nil?)
-      print "#{@other_candidates.length}\n"
-    end
     render 'add'
   end
 
