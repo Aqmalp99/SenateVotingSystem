@@ -5,10 +5,10 @@ Feature: Add a Candidate to the Ballot
 
   Scenario Outline: Submit Candidate Personal Information
     Given I am on the add candidate page
-    When I fill in the "first name" field with <first_name>
-    And I fill in the "surname" field with <surname>
-    And I fill in the "party" field with <party>
-    When I click "next"
+    When I fill in the "candidate_first_name" field with <first_name>
+    And I fill in the "candidate_surname" field with <surname>
+    And I fill in the "candidate_party" field with <party>
+    When I click "Next"
     Then I should see "Set Candidate Grouping Order"
 
     Examples:

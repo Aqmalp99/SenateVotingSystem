@@ -5,19 +5,16 @@ class CandidatesController < ApplicationController
 
   def add
     @candidate = Candidate.new
-    print session[:candidate_step]
   end
 
   def create
     @candidate = Candidate.new(candidate_params)
-    @candidate.current_step = session[:candidate_step]
     @candidate.next_step
-    session[:candidate_step] = @candidate.current_step
     render 'add'
   end
 
   def candidate_params
-    params.require(:candidate).permit(:first_name, :surname, :party)
+    params.require(:candidate).permit(:first_name, :surname, :party, :order)
   end
 
 end

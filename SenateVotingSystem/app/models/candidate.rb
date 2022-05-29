@@ -1,5 +1,4 @@
 class Candidate < ApplicationRecord
-  attr_accessor :first_name, :surname, :party, :order
   attr_writer :current_step
 
   validates :first_name, presence: true
@@ -17,4 +16,5 @@ class Candidate < ApplicationRecord
   def next_step
     self.current_step = steps[steps.index(current_step) + 1]
   end
+
 end
