@@ -41,7 +41,8 @@ Feature: Add a Candidate to the Ballot
     And I fill in the "candidate_party" field with <party>
     When I click "Next"
     When I fill in the "candidate_order" field with <order>
-    Then I should see "Candidate added successfully"
+    When I click "Confirm"
+    Then I should see "Add New Candidate"
 
     Examples:
       | first_name | surname  | party                   | order |
