@@ -13,8 +13,8 @@
   </div>
 </nav>
 
+<%= semantic_flash %>
 
 <%= form_with model: @candidate, url: add_candidates_path, method: :post, local: true, data: { turbo: false }, scope: :candidate do |form| %>
   <%= render "#{@candidate.current_step}_step", :form => form%>
-  <%= submit_tag 'Next' %>
 <% end %>

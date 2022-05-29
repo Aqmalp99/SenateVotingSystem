@@ -1,5 +1,25 @@
-<h1>Hi chief</h1>
+<h1>Set Candidate Grouping Order</h1>
+<h2>Other Candidates in the <%= @candidate.party %></h2>
+<table>
+  <thead>
+  <tr>
+    <th>Candidate</th>
+    <th>Party</th>
+    <th>Party Order</th>
+  </tr>
+  </thead>
+  <tbody>
+    <% @other_candidates.each do |candidate| %>
+      <tr>
+        <td><%= candidate.first_name.to_s + ' ' + candidate.surname.to_s %></td>
+        <td><%= candidate.party %></td>
+        <td><%= candidate.order %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 <div>
   <%= form.label :order, 'Order:' %>
   <%= form.number_field :order %>
 </div>
+<%= submit_tag 'Confirm' %>

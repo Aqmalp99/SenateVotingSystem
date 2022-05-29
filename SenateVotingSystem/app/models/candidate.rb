@@ -1,10 +1,10 @@
 class Candidate < ApplicationRecord
-  attr_accessor :first_name, :surname, :party, :order
   attr_writer :current_step
 
   validates :first_name, presence: true
   validates :surname, presence: true
   validates :party, presence: true
+  validates :order, presence: true
 
   def current_step
     @current_step || steps.first
@@ -16,5 +16,9 @@ class Candidate < ApplicationRecord
 
   def next_step
     self.current_step = steps[steps.index(current_step) + 1]
+  end
+
+  def last_step?
+    current_step == steps.last
   end
 end
