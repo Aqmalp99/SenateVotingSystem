@@ -33,3 +33,16 @@ Feature: Add a Candidate to the Ballot
     Examples:
       | first_name | surname  | party                   |
       | Anthony    | Albanese | Australian Labor Party  |
+
+  Scenario Outline: Submit Candidate Form
+    Given I am on the add candidate page
+    When I fill in the "candidate_first_name" field with <first_name>
+    And I fill in the "candidate_surname" field with <surname>
+    And I fill in the "candidate_party" field with <party>
+    When I click "Next"
+    When I fill in the "candidate_order" field with <order>
+    Then I should see "Candidate added successfully"
+
+    Examples:
+      | first_name | surname  | party                   | order |
+      | Anthony    | Albanese | Australian Labor Party  | 3     |
