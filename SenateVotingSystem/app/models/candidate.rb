@@ -4,7 +4,7 @@ class Candidate < ApplicationRecord
   validates :first_name, presence: true
   validates :surname, presence: true
   validates :party, presence: true
-  validates :order, presence: true
+  validates :order, presence: true, uniqueness: true
 
   def current_step
     @current_step || steps.first
