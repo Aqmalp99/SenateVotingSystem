@@ -28,11 +28,13 @@ RSpec.describe Candidate, type: :model do
 
   it 'total score is set to 0.0 upon creation' do
     @candidate = Candidate.create(first_name: 'Kevin', surname: 'Rudd', party: 'Australian Labor Party', order: 1)
-    expect(@candidate[:totalscore]).to eq(0.0)
+    print "Attributes: #{@candidate.attributes}\n"
+    expect(@candidate.attributes.values).to include(0.0)
   end
 
   it 'excluded boolean is set to false upon creation' do
     @candidate = Candidate.create(first_name: 'Kevin', surname: 'Rudd', party: 'Australian Labor Party', order: 1)
-    expect(@candidate[:excluded]).to eq(false)
+    print "Attributes: #{@candidate.attributes}\n"
+    expect(@candidate.attributes.values).to include(false)
   end
 end
