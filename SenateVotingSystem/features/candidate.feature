@@ -59,3 +59,14 @@ Feature: Add a Candidate to the Ballot
     Examples:
       | first_name | surname  | party                   | order |
       | Anthony    | Albanese | Australian Labor Party  | 3     |
+
+  Scenario Outline: Submit Candidate Form First Page Error (sad path)
+    Given I am on the add candidate page
+    When I fill in the "candidate_first_name" field with <first_name>
+    And I fill in the "candidate_surname" field with <surname>
+    When I click "Next"
+    Then I should see "Add New Candidate"
+
+    Examples:
+      | first_name | surname  | party                   | order |
+      | Anthony    | Albanese | Australian Labor Party  | 3     |
