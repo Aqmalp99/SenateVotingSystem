@@ -20,4 +20,9 @@ RSpec.describe Candidate, type: :model do
   it 'is invalid without an order' do
     expect(Candidate.create(first_name: 'Anthony', surname: 'Albanese', party: 'Australian Labor Party', order: nil)).not_to be_valid
   end
+
+  it 'is invalid when an order is not unique to a party' do
+    Candidate.create(first_name: 'Kevin', surname: 'Rudd', party: 'Australian Labor Party', order: 1)
+    expect(Candidate.create(first_name: 'Anthony', surname: 'Albanese', party: 'Australian Labor Party', order: 1)).not_to be_valid
+  end
 end
