@@ -16,9 +16,7 @@ class CandidatesController < ApplicationController
     @candidate.current_step = session[:candidate_step]
 
     if @candidate.last_step?
-      @candidate.totalvotes = 0.0
-      @candidate.excluded = false
-      flash[:notice] = @candidate.save ? 'Candidate added successfully' : 'Error adding candidate. Check Order'
+      flash[:notice] = @candidate.save ? 'Candidate added successfully' : 'Error adding candidate'
     else
       @candidate.next_step
     end
@@ -27,6 +25,7 @@ class CandidatesController < ApplicationController
     @other_candidates = Candidate.where('party = ?', @candidate.party) if session[:candidate_step] == 'order'
 
     if @candidate.new_record?
+      flash[:notice] = 'Make sure to fill in all fields'
       render 'add'
     else
       session[:candidate_params] = nil
