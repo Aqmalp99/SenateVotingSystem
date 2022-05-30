@@ -34,6 +34,18 @@ Feature: Add a Candidate to the Ballot
       | first_name | surname  | party                   |
       | Anthony    | Albanese | Australian Labor Party  |
 
+  Scenario Outline: No Other Candidates in Ballot
+    Given I am on the add candidate page
+    When I fill in the "candidate_first_name" field with <first_name>
+    And I fill in the "candidate_surname" field with <surname>
+    And I fill in the "candidate_party" field with <party>
+    When I click "Next"
+    Then I should see "There are no other candidates in the party grouping."
+
+    Examples:
+      | first_name | surname  | party       |
+      | Adam       | Bandt    | The Greens  |
+
   Scenario Outline: Submit Candidate Form
     Given I am on the add candidate page
     When I fill in the "candidate_first_name" field with <first_name>
