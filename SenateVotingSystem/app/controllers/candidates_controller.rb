@@ -5,7 +5,8 @@ class CandidatesController < ApplicationController
 
   def add
     session[:candidate_params] ||= {}
-    @candidate = Candidate.new
+    @candidate = Candidate.new(session[:candidate_params])
+    @other_candidates = Candidate.where('party = ?', @candidate.party) if session[:candidate_step] == 'order'
     @candidate.current_step = session[:candidate_step]
   end
 
