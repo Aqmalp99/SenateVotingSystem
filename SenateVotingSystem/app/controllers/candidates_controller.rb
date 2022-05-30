@@ -18,7 +18,7 @@ class CandidatesController < ApplicationController
     if @candidate.last_step?
       @candidate.totalvotes = 0.0
       @candidate.excluded = false
-      flash[:notice] = 'Candidate added successfully' if @candidate.save
+      flash[:notice] = 'Candidate added successfully' if @candidate.save!
     else
       @candidate.next_step
     end
