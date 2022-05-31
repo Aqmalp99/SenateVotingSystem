@@ -60,5 +60,6 @@
     <orderEntry type="library" scope="PROVIDED" name="webdrivers (v5.0.0, Remote-rvm: ruby-3.0.0-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="xpath (v3.2.0, Remote-rvm: ruby-3.0.0-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="zeitwerk (v2.5.4, Remote-rvm: ruby-3.0.0-p0) [gem]" level="application" />
+
   </component>
 </module>
