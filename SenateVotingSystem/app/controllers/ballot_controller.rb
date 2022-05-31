@@ -1,4 +1,4 @@
 class BallotController < ApplicationController
-  def index
+  def ballot_page
   end
 end
