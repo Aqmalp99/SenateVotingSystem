@@ -4,16 +4,22 @@
 
 .login_page_div {
   text-align: center;
-  margin-top: 5%;
+  margin-top: 10%;
+}
+
+.voter_home_page_div {
+  background-color: whitesmoke;
+  width: 55%;
+  border-radius: 5px;
+  margin: 0 auto;
 }
 
 button {
-  padding: 1%;
-  font-size: 100%;
   width: 20%;
-  margin-top: 1%;
-  margin-bottom: 1%;
-  background-color: green;
-  color: whitesmoke;
-  border: none;
+}
+
+.vote_now_button {
+  width: 10%;
+  margin:0 auto;
+  display:block;
 }
