@@ -1,4 +1,13 @@
-<h1 style="text-align: center; margin: 1% 0% 5% 0%; font-weight: bold">SENATE VOTING APPLICATION</h1>
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand"> Welcome
+    <%= @current_user.first_name %>
+  </a>
+  <div>
+    <%= link_to root_path, class: "btn btn-outline-danger" do %>
+      <i>Logout</i>
+    <%end %>
+  </div>
+</nav>
 
 <div class="voter_home_page_div">
     <h4 style="text-align: left; padding: 2%">Voting instructions</h4>
@@ -12,6 +21,10 @@
    Once you are happy with your preferences, click "Submit Vote".
   </pre>
 </div>
+<% if @current_user.has_voted %>
+  <p style="text-align: center">Sorry, you have already voted.</p>
+<% else %>
 <%= button_to "Vote now", voter_ballot_page_path, method: "get", class: "btn btn-primary vote_now_button" %>
+<% end %>
 
 
