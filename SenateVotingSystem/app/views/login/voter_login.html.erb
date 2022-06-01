@@ -1,0 +1,17 @@
+<h1 style="text-align: center; margin-top: 1%; font-weight: bold">SENATE VOTING APPLICATION</h1>
+
+<div class="login_page_div">
+  <%= form_with url: voter_home_page_path, method: :get do |form| %>
+    <%= form.label :userID, "Voter ID:" %>
+    <%= form.text_field :userID %>
+    <%= form.submit "Login", class: "btn btn-primary btn-lg" %>
+  <% end %>
+</div>
+<br>
+<% if flash.any? %>
+  <% flash.each do |type, msg| %>
+    <div class="alert alert-danger" role="alert" style="text-align: center; width: 25%; margin: 0 auto;">
+      <%= msg %>
+    </div>
+  <% end %>
+<% end %>
