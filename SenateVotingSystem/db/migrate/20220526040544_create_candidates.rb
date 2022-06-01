@@ -4,7 +4,7 @@ class CreateCandidates < ActiveRecord::Migration[7.0]
       t.string :first_name
       t.string :surname
       t.string :party
-      t.boolean :excluded
+      t.boolean :excluded, :default => false
       t.integer :order
 
       t.timestamps
