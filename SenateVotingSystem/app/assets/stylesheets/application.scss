@@ -23,3 +23,40 @@ button {
   margin:0 auto;
   display:block;
 }
+
+//Ballot Page stuff
+.ballot_header {
+  text-align: center;
+  background: #089624;
+  font-size: 20px;
+}
+
+.middle_margin{
+  width:100%;
+  background: black;
+  height: 10px;
+}
+
+.submit_vote{
+  background: lightgreen;
+  color: black;
+  width: 20%;
+  top: 50%;
+  margin-left: 40%;
+  margin-right: auto;
+  border-radius: 15px;
+  border-color: black;
+  height: 40px;
+
+}
+
+.vertical_line {
+
+  border-left: 4px solid black;
+  height: 200px;
+  top: 50px;
+  width: 1px;
+
+  position: fixed;
+  margin-left: 15%;
+}
