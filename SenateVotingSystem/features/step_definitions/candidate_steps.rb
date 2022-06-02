@@ -22,7 +22,7 @@ Then(/^I should see "([^"]*)"$/) do |content|
 end
 
 When(/^I find and select "([^"]*)"$/) do |element|
-  find('i', text: "#{element}").click
+  find('a', text: "#{element}").click
 end
 
 Then(/^I should be on the "([^"]*)" "([^"]*)" page$/) do |controller, page|
