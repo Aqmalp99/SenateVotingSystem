@@ -5,8 +5,8 @@ Given(/^The following candidates are in the database:$/) do |table|
   end
 end
 
-Given(/^I am on the add candidate page$/) do
-  visit add_candidates_path
+Given(/^I am on the "([^"]*)" "([^"]*)" page$/) do |controller, page|
+  visit "/#{controller}/#{page}"
 end
 
 When(/^I fill in the "([^"]*)" field with (.*)$/) do |field, value|
@@ -19,4 +19,12 @@ end
 
 Then(/^I should see "([^"]*)"$/) do |content|
   expect(page).to have_content(content.to_s)
+end
+
+When(/^I find and select "([^"]*)"$/) do |element|
+  find('a', text: "#{element}").click
+end
+
+Then(/^I should be on the "([^"]*)" "([^"]*)" page$/) do |controller, page|
+  expect(URI.parse(current_url).path).to eq("/#{controller}/#{page}")
 end

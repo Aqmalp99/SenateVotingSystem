@@ -35,4 +35,16 @@ RSpec.describe Candidate, type: :model do
     @candidate = Candidate.create(first_name: 'Kevin', surname: 'Rudd', party: 'Australian Labor Party', order: 1)
     expect(@candidate.attributes.values).to include(false)
   end
+
+  it 'retrieves other candidates in grouping order' do
+    @albo = Candidate.create(first_name: 'Anthony', surname: 'Albanese', party: 'Australian Labor Party', order: 2)
+    @penny = Candidate.create(first_name: 'Penny', surname: 'Wong', party: 'Australian Labor Party', order: 1)
+    @kevin = Candidate.create(first_name: 'Kevin', surname: 'Rudd', party: 'Australian Labor Party', order: 4)
+    @other_candidates = @albo.other_candidates
+    expect(@other_candidates[0].first_name).to eq('Penny')
+  end
+
+  it 'is invalid if order is less than 1' do
+    expect(Candidate.create(first_name: 'Anthony', surname: 'Albanese', party: 'Australian Labor Party', order: -1)).not_to be_valid
+  end
 end
