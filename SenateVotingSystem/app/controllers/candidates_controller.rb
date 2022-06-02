@@ -35,7 +35,7 @@ class CandidatesController < ApplicationController
       render 'add'
     else
       reset_session
-      redirect_to add_candidates_path
+      redirect_to add_candidates_path, :notice => 'Candidate added successfully'
     end
 
   end
