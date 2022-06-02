@@ -14,7 +14,6 @@ class BallotController < ApplicationController
     allCandidates.each do |candidate|
         @parties_candidates[candidate.party] << candidate
     end
-    print(@parties_candidates)
 
   end
 end
