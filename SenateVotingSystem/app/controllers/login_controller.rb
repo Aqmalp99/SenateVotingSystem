@@ -3,6 +3,5 @@ class LoginController < ApplicationController
     reset_session
   end
   def voter_login
-
   end
 end
