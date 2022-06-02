@@ -8,6 +8,7 @@ Feature: Add a Candidate to the Ballot
       | first_name | surname   | party                  | order |
       | Kevin      | Rudd      | Australian Labor Party | 3     |
       | Scott      | Morrison  | Liberal National Party | 2     |
+      | Penny      | Wong      | Australian Labor Party | 2     |
 
 
   Scenario Outline: Submit Candidate Personal Information
@@ -16,7 +17,7 @@ Feature: Add a Candidate to the Ballot
     And I fill in the "candidate_surname" field with <surname>
     And I fill in the "candidate_party" field with <party>
     When I click "Next"
-    Then I should see "Set Candidate Grouping Order"
+    Then I should see "Penny Wong" before "Kevin Rudd"
 
     Examples:
       | first_name | surname  | party                   |

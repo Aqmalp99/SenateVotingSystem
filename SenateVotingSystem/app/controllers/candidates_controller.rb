@@ -14,7 +14,6 @@ class CandidatesController < ApplicationController
     session[:candidate_params].deep_merge!(candidate_params) if candidate_params
     session[:candidate_params].values.each do |param|
       if param == ""
-        # reset_session
         return redirect_to add_candidates_path, :notice => "Make sure all fields are filled"
       end
     end
@@ -23,7 +22,7 @@ class CandidatesController < ApplicationController
     @candidate.current_step = session[:candidate_step]
 
     if @candidate.last_step?
-      flash[:notice] = @candidate.save ? 'Candidate added successfully' : 'Error adding candidate. Check order field'
+      flash[:notice] = 'Error adding candidate. Check order field' unless @candidate.save
     else
       @candidate.next_step
     end
@@ -37,7 +36,6 @@ class CandidatesController < ApplicationController
       reset_session
       redirect_to add_candidates_path, :notice => 'Candidate added successfully'
     end
-
   end
 
   def candidate_params
