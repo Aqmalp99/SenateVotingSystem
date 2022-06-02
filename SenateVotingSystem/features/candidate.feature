@@ -30,8 +30,8 @@ Feature: Add a Candidate to the Ballot
     Then I should see "Add New Candidate"
 
     Examples:
-      | first_name | surname  | party                   | order |
-      | Anthony    | Albanese | Australian Labor Party  | 3     |
+      | first_name | surname  |
+      | Anthony    | Albanese |
 
   Scenario Outline: See Other Candidates in Ballot
     Given I am on the add candidate page
@@ -57,6 +57,19 @@ Feature: Add a Candidate to the Ballot
       | first_name | surname  | party       |
       | Adam       | Bandt    | The Greens  |
 
+  Scenario Outline: Submit Candidate Form Second Page Error (sad path)
+    Given I am on the add candidate page
+    When I fill in the "candidate_first_name" field with <first_name>
+    And I fill in the "candidate_surname" field with <surname>
+    And I fill in the "candidate_party" field with <party>
+    When I click "Next"
+    When I click "Confirm"
+    Then I should see "Set Candidate Grouping Order"
+
+    Examples:
+      | first_name | surname  | party                   |
+      | Anthony    | Albanese | Australian Labor Party  |
+
   Scenario Outline: Submit Candidate Form
     Given I am on the add candidate page
     When I fill in the "candidate_first_name" field with <first_name>
@@ -69,4 +82,4 @@ Feature: Add a Candidate to the Ballot
 
     Examples:
       | first_name | surname  | party                   | order |
-      | Anthony    | Albanese | Australian Labor Party  | 3     |
+      | Anthony    | Albanese | Australian Labor Party  | 4     |
