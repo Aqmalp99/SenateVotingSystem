@@ -21,4 +21,8 @@ class Candidate < ApplicationRecord
   def last_step?
     current_step == steps.last
   end
+
+  def other_candidates
+    Candidate.where('party = ?', party).order(:order)
+  end
 end

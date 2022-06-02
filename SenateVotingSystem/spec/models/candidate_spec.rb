@@ -39,7 +39,8 @@ RSpec.describe Candidate, type: :model do
   it 'retrieves other candidates in grouping order' do
     @albo = Candidate.create(first_name: 'Anthony', surname: 'Albanese', party: 'Australian Labor Party', order: 2)
     @penny = Candidate.create(first_name: 'Penny', surname: 'Wong', party: 'Australian Labor Party', order: 1)
-    @other_candidates = Candidate.other_candidates('Australian Labor Party')
+    @kevin = Candidate.create(first_name: 'Kevin', surname: 'Rudd', party: 'Australian Labor Party', order: 4)
+    @other_candidates = @albo.other_candidates
     expect(@other_candidates[0].first_name).to eq('Penny')
   end
 end
