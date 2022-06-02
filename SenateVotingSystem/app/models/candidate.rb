@@ -4,7 +4,7 @@ class Candidate < ApplicationRecord
   validates :first_name, presence: true
   validates :surname, presence: true
   validates :party, presence: true
-  validates :order, presence: true
+  validates :order, presence: true, uniqueness: { scope: :party }, numericality: { greater_than: 0 }
 
   def current_step
     @current_step || steps.first
@@ -20,5 +20,9 @@ class Candidate < ApplicationRecord
 
   def last_step?
     current_step == steps.last
+  end
+
+  def other_candidates
+    Candidate.where('party = ?', party).order(:order)
   end
 end

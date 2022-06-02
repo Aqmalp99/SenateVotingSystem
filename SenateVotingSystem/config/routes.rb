@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'login#index'
 
   get '/login', to: 'login#index'
+  get '/login/voter_login', to: 'login#voter_login', as: 'voter_login'
 
   get '/candidates', to: redirect('/candidates/add'), as: 'candidates'
   get '/candidates/add', to: 'candidates#add', as: 'add_candidates'

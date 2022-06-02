@@ -5,34 +5,37 @@ class CandidatesController < ApplicationController
 
   def add
     session[:candidate_params] ||= {}
-    @candidate = Candidate.new
+    @candidate = Candidate.new(session[:candidate_params])
+    @other_candidates = @candidate.other_candidates if session[:candidate_step] == 'order'
     @candidate.current_step = session[:candidate_step]
   end
 
   def create
     session[:candidate_params].deep_merge!(candidate_params) if candidate_params
+    session[:candidate_params].values.each do |param|
+      if param == ""
+        return redirect_to add_candidates_path, :notice => "Make sure all fields are filled"
+      end
+    end
+
     @candidate = Candidate.new(session[:candidate_params])
     @candidate.current_step = session[:candidate_step]
 
     if @candidate.last_step?
-      @candidate.totalvotes = 0.0
-      @candidate.excluded = false
-      flash[:notice] = 'Candidate added successfully' if @candidate.save
+      flash[:notice] = 'Error adding candidate. Check order field' unless @candidate.save
     else
       @candidate.next_step
     end
 
     session[:candidate_step] = @candidate.current_step
-    @other_candidates = Candidate.where('party = ?', @candidate.party) if session[:candidate_step] == 'order'
+    @other_candidates = @candidate.other_candidates if session[:candidate_step] == 'order'
 
     if @candidate.new_record?
       render 'add'
     else
-      session[:candidate_params] = nil
-      session[:candidate_step] = nil
-      redirect_to add_candidates_path
+      reset_session
+      redirect_to add_candidates_path, :notice => 'Candidate added successfully'
     end
-
   end
 
   def candidate_params

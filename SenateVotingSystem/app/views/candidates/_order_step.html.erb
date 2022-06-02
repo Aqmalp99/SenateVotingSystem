@@ -1,5 +1,5 @@
 <h1>Set Candidate Grouping Order</h1>
-<h2>Other Candidates in the <%= @candidate.party %></h2>
+<h2>Other Candidates in <%= @candidate.party %></h2>
 <table>
   <thead>
   <tr>
@@ -9,6 +9,13 @@
   </tr>
   </thead>
   <tbody>
+  <% if @other_candidates.nil? || @other_candidates.length == 0 %>
+    <tr>
+      <td colspan="3">
+        There are no other candidates in the party grouping.
+      </td>
+    </tr>
+  <% else %>
     <% @other_candidates.each do |candidate| %>
       <tr>
         <td><%= candidate.first_name.to_s + ' ' + candidate.surname.to_s %></td>
@@ -16,10 +23,11 @@
         <td><%= candidate.order %></td>
       </tr>
     <% end %>
+  <% end %>
   </tbody>
 </table>
 <div>
   <%= form.label :order, 'Order:' %>
-  <%= form.number_field :order %>
+  <%= form.number_field :order, min: 1 %>
 </div>
 <%= submit_tag 'Confirm' %>
