@@ -9,5 +9,12 @@ class BallotController < ApplicationController
       redirect_to root_path
     end
 
+    allCandidates=Candidate.all
+    @parties_candidates=Hash.new { |h, k| h[k] = [] }
+    allCandidates.each do |candidate|
+        @parties_candidates[candidate.party] << candidate
+    end
+    print(@parties_candidates)
+
   end
 end
