@@ -2,11 +2,13 @@
   <a class="navbar-brand"> Welcome
     <%= @current_user.first_name %>
   </a>
+  <h1 style="text-align: center; font-weight: bold">SENATE VOTING APPLICATION</h1>
   <div>
     <%= link_to root_path, class: "btn btn-outline-danger" do %>
       <i>Logout</i>
     <%end %>
   </div>
+
 </nav>
 <% if flash.any? %>
   <% flash.each do |type, msg| %>
