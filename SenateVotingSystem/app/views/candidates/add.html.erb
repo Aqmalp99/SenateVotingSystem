@@ -1,5 +1,8 @@
 <nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="<%= admin_voting_results_path %>">Electoral Commissioner</a>
+  <%= link_to admin_voting_results_path, class: "btn btn-outline-primary" do %>
+    <i>Back</i>
+  <%end %>
+<!--  <a class="navbar-brand" href="<%#= admin_voting_results_path %>">Electoral Commissioner</a>-->
   <div>
     <%= link_to add_candidates_path, class: "btn btn-outline-primary" do %>
       <i>Add Candidate</i>
@@ -15,6 +18,9 @@
 
 <%= semantic_flash %>
 
-<%= form_with model: @candidate, url: add_candidates_path, method: :post, local: true, data: { turbo: false }, scope: :candidate do |form| %>
-  <%= render "#{@candidate.current_step}_step", :form => form%>
-<% end %>
+<div class="login_page_div">
+  <%= form_with model: @candidate, url: add_candidates_path, method: :post, local: true, data: { turbo: false }, scope: :candidate do |form| %>
+    <%= render "#{@candidate.current_step}_step", :form => form%>
+  <% end %>
+</div>
+
