@@ -5,6 +5,7 @@ class VoterController < ApplicationController
     end
 
     if User.where(:id => session[:id])[0] == nil
+      reset_session
       redirect_to voter_login_path
       flash[:message] = "Login Failed"
     end
