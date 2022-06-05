@@ -13,7 +13,7 @@ Then(/^I should be taken to voter homepage$/) do
   #pending
 end
 
-Then(/^I should be taken to election commissioner homepage$/) do
+Then(/^I should be taken to electoral commissioner homepage$/) do
   visit "/admin/voting-results"
   #pending
 end

@@ -8,5 +8,5 @@ Feature: Login as voter or admin
     Then I should be taken to voter homepage
 
   Scenario: Go to election commissioner homepage
-    When I click "Login as election commissioner" button
-    Then I should be taken to election commissioner homepage
+    When I click "Login as electoral commissioner" button
+    Then I should be taken to electoral commissioner homepage
