@@ -1,10 +1,10 @@
-Given(/^I am on the voter home page$/) do
-  visit "/voter"
+Given(/^I am on the voter homepage for user "([^"]*)"$/) do |userID|
+  visit "/voter?userID=#{userID}&commit=Login"
   #pending
 end
 
-Then(/^I should see "([^"]*)" information box$/) do |info_box|
-  expect(page).to have_content(info_box)
+Then(/^I should see "([^"]*)" information box$/) do |text|
+  expect(page).to have_content(text)
   #pending
 end
 
@@ -17,3 +17,4 @@ Then(/^I should be taken to voting ballot page$/) do
   visit "/voter/ballot-page"
   #pending
 end
+
