@@ -17,4 +17,12 @@ RSpec.describe "Commissioners", type: :request do
       expect(topCandidates).to eq(Candidate.order(totalvotes: :desc).limit(10))
     end
   end
+
+  describe 'GET #order-recount for commissioner' do
+    it 'renders the view to order a recount and exclude candidates' do
+      get '/admin/order-recount'
+      expect(page).to have_content('Order Recount')
+    end
+
+  end
 end
