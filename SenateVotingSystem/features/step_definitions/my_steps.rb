@@ -28,3 +28,9 @@ end
 Then(/^I should be on the "([^"]*)" "([^"]*)" page$/) do |controller, page|
   expect(URI.parse(current_url).path).to eq("/#{controller}/#{page}")
 end
+
+Then(/^I should see "([^"]*)" within the "([^"]*)"$/) do |content, element|
+  within("#{element}") do
+    expect(page).to have_content("#{content}")
+  end
+end
