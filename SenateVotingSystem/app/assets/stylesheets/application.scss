@@ -66,7 +66,7 @@
   top: 86px;
   width: 1px;
   position: fixed;
-  margin-left: 16%;
+  margin-left: 32%;
 }
 
 .vertical_line3 {
@@ -75,7 +75,7 @@
   top: 86px;
   width: 1px;
   position: fixed;
-  margin-left: 16%;
+  margin-left: 48%;
 }
 
 .vertical_line4 {
@@ -84,7 +84,7 @@
   top: 86px;
   width: 1px;
   position: fixed;
-  margin-left: 16%;
+  margin-left: 64%;
 }
 
 .vertical_line5 {
@@ -93,5 +93,15 @@
   top: 86px;
   width: 1px;
   position: fixed;
-  margin-left: 16%;
+  margin-left: 80%;
 }
+
+.vertical_line6 {
+  border-left: 4px solid darkgrey;
+  height: 120px;
+  top: 86px;
+  width: 1px;
+  position: fixed;
+  margin-left: 96%;
+}
+
