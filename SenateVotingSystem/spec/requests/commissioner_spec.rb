@@ -24,5 +24,10 @@ RSpec.describe "Commissioners", type: :request do
       expect(response).to have_http_status(200)
     end
 
+    it 'returns candidates in order of least votes to most votes' do
+      get '/admin/recount'
+      ordered_candidates = assigns(:candidates)
+      expect(ordered_candidates).to eq(Candidate.order(:totalvotes))
+    end
   end
 end
