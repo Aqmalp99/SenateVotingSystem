@@ -32,7 +32,7 @@
           <td><%= candidate.first_name + ' ' + candidate.surname %></td>
           <td><%= candidate.party %></td>
           <td><%= candidate.totalvotes %></td>
-          <td><%= form.check_box "candidate_#{candidate.id}".to_s %></td>
+          <td><%= form.check_box "#{candidate.id}".to_s %></td>
         </tr>
       <% end %>
     </tbody>

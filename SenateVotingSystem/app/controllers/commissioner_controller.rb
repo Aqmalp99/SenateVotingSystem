@@ -21,6 +21,12 @@ class CommissionerController < ApplicationController
   end
 
   def order_recount
+    params.each do |pair|
+      if pair[1] == "1"
+        candidate = Candidate.find(Integer(pair[0]))
+        candidate.update(excluded: true)
+      end
+    end
     redirect_to admin_voting_results_path, notice: "Recount successfully ordered"
   end
 end
