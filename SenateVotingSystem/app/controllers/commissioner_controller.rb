@@ -15,4 +15,7 @@ class CommissionerController < ApplicationController
 
     @candidates=Candidate.order(totalvotes: :desc).limit(10)
   end
+
+  def recount
+  end
 end
