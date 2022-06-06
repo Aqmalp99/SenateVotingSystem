@@ -20,3 +20,8 @@ Feature: Commissioner can order a recount
     Then I should see "Penny Wong" within the "table"
     And I should see "Australian Labor Party"
 
+  Scenario: Recount form submits correctly and redirects to dashboard
+    Given I am on the "admin" "recount" page
+    When I check the first checkbox
+    And I click "Confirm Recount"
+    Then I should be on the "admin" "voting-results" page

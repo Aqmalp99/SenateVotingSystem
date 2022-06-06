@@ -34,3 +34,9 @@ Then(/^I should see "([^"]*)" within the "([^"]*)"$/) do |content, element|
     expect(page).to have_content("#{content}")
   end
 end
+
+When(/^I check the first checkbox$/) do
+  within("table") do
+    first("input[type='checkbox']").set(true)
+  end
+end
