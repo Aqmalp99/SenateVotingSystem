@@ -17,5 +17,6 @@ class CommissionerController < ApplicationController
   end
 
   def recount
+    @candidates=Candidate.all
   end
 end
