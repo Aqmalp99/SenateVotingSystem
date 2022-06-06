@@ -27,6 +27,9 @@ class CommissionerController < ApplicationController
         candidate.update(excluded: true)
       end
     end
+
+    User.update_all has_voted: false
+    Candidate.update_all totalvotes: 0.0
     redirect_to admin_voting_results_path, notice: "Recount successfully ordered"
   end
 end
