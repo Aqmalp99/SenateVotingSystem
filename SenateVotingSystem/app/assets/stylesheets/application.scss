@@ -51,13 +51,13 @@
   height: 40px;
 }
 
-.vertical_line {
+.vertical_line1 {
   border-left: 4px solid darkgrey;
   height: 140px;
   top: 86px;
   width: 1px;
   position: absolute;
-  margin-left: 16%;
+  margin-left: 0%;
 }
 
 .vertical_line2 {
@@ -66,7 +66,7 @@
   top: 86px;
   width: 1px;
   position: absolute;
-  margin-left: 32.8%;
+  margin-left: 16%;
 }
 
 .vertical_line3 {
@@ -75,7 +75,7 @@
   top: 86px;
   width: 1px;
   position: absolute;
-  margin-left: 49.6%;
+  margin-left: 32.8%;
 }
 
 .vertical_line4 {
@@ -84,7 +84,7 @@
   top: 86px;
   width: 1px;
   position: absolute;
-  margin-left: 65.2%;
+  margin-left: 49.6%;
 }
 
 .vertical_line5 {
@@ -93,7 +93,7 @@
   top: 86px;
   width: 1px;
   position: absolute;
-  margin-left: 82%;
+  margin-left: 65.2%;
 }
 
 .vertical_line6 {
@@ -102,10 +102,29 @@
   top: 86px;
   width: 1px;
   position: absolute;
-  margin-left: 99.7%;
+  margin-left: 82%;
 }
 
 .vertical_line7 {
+  border-left: 4px solid darkgrey;
+  height: 140px;
+  top: 86px;
+  width: 1px;
+  position: absolute;
+  margin-left: 99.7%;
+}
+
+.dynamic_vertical_line1 {
+  border-left: 4px solid darkgrey;
+  overflow: auto;
+  height: calc(100% - 475px);
+  position: absolute;
+  top: 372px;
+  width: 1px;
+  margin-left: 0%;
+}
+
+.dynamic_vertical_line2 {
   border-left: 4px solid darkgrey;
   overflow: auto;
   height: calc(100% - 475px);
@@ -114,6 +133,59 @@
   width: 1px;
   margin-left: 16%;
 }
+
+.dynamic_vertical_line3 {
+  border-left: 4px solid darkgrey;
+  overflow: auto;
+  height: calc(100% - 475px);
+  position: absolute;
+  top: 372px;
+  width: 1px;
+  margin-left: 32.8%;
+}
+
+.dynamic_vertical_line4 {
+  border-left: 4px solid darkgrey;
+  overflow: auto;
+  height: calc(100% - 475px);
+  position: absolute;
+  top: 372px;
+  width: 1px;
+  margin-left: 49.6%;
+}
+
+.dynamic_vertical_line5 {
+  border-left: 4px solid darkgrey;
+  overflow: auto;
+  height: calc(100% - 475px);
+  position: absolute;
+  top: 372px;
+  width: 1px;
+  margin-left: 65.2%;
+}
+
+.dynamic_vertical_line6 {
+  border-left: 4px solid darkgrey;
+  overflow: auto;
+  height: calc(100% - 475px);
+  position: absolute;
+  top: 372px;
+  width: 1px;
+  margin-left: 82%;
+}
+
+.dynamic_vertical_line7 {
+  border-left: 4px solid darkgrey;
+  overflow: auto;
+  height: calc(100% - 475px);
+  position: absolute;
+  top: 372px;
+  width: 1px;
+  margin-left: 99.7%;
+}
+
+
+
 
 //used to make the bottom margin lines scale properly regardless of window size
 html{
