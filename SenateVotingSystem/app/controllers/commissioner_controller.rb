@@ -17,7 +17,7 @@ class CommissionerController < ApplicationController
   end
 
   def recount
-    @candidates=Candidate.all
+    @candidates=Candidate.order(:totalvotes)
   end
 
   def order_recount
