@@ -40,3 +40,7 @@ When(/^I check the first checkbox$/) do
     first("input[type='checkbox']").set(true)
   end
 end
+
+Then(/^The checkbox for "([^"]*)" should be checked$/) do |candidate_id|
+  expect(find_field("#{candidate_id}").checked?).to eq(true)
+end
