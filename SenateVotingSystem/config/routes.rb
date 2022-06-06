@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   post '/voter/ballot-page', to: 'ballot#post_vote', as: 'post_vote'
   get '/admin/voting-results', to: 'commissioner#home_page', as: 'admin_voting_results'
   get '/admin/recount', to: 'commissioner#recount', as: 'recount'
+  post '/admin/order-recount', to: 'commissioner#order_recount', as: 'order_recount'
   # Defines the root path route ("/")
   # root "articles#index"
 end

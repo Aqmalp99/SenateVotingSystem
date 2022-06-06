@@ -19,4 +19,8 @@ class CommissionerController < ApplicationController
   def recount
     @candidates=Candidate.all
   end
+
+  def order_recount
+    redirect_to admin_voting_results_path, notice: "Recount successfully ordered"
+  end
 end

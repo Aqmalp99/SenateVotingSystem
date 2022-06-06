@@ -15,23 +15,27 @@
 
 <h1>Order Recount</h1>
 <h2>Exclude Candidates from Recount:</h2>
-<table>
-  <thead>
-    <tr>
-      <th>Candidate</th>
-      <th>Party</th>
-      <th>Votes</th>
-      <th>Select</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @candidates.each do |candidate| %>
+
+<%= form_with url: order_recount_path, method: :post do |form|%>
+  <table>
+    <thead>
       <tr>
-        <td><%= candidate.first_name + ' ' + candidate.surname %></td>
-        <td><%= candidate.party %></td>
-        <td><%= candidate.totalvotes %></td>
-        <td></td>
+        <th>Candidate</th>
+        <th>Party</th>
+        <th>Votes</th>
+        <th>Select</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @candidates.each do |candidate| %>
+        <tr>
+          <td><%= candidate.first_name + ' ' + candidate.surname %></td>
+          <td><%= candidate.party %></td>
+          <td><%= candidate.totalvotes %></td>
+          <td><%= form.check_box "candidate_#{candidate.id}".to_s %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= submit_tag 'Confirm Recount' %>
+<% end %>
