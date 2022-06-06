@@ -1,10 +1,24 @@
+<style>
+  input{
+      width: 20%;
+      margin-left: 40%;
+  }
+  input[type=number]{
+      margin-left: 0%;
+      width: 100%;
+  }
+</style>
 
 <div class="ballot_header">
+
   <%= link_to voter_home_page_path, class: "btn btn-outline-primary" do %>
     <i>Back</i>
   <%end %>
   <h1>Ballot Page</h1>
 </div>
+
+
+
 <% if flash.any? %>
   <% flash.each do |type, msg| %>
     <div class="alert alert-danger" role="alert" style="text-align: center; width: 25%; margin: 0 auto;">
@@ -28,6 +42,10 @@
 </table>
   <%= form.submit "Submit Above The Line Vote", class: "btn btn-primary btn-lg" %>
 <% end %>
+
+<div class="vertical_line"></div>
+
+<div class="middle_margin"></div>
 
 <%= form_with url: post_vote_path, method: :post do |form| %>
 <table class="ui table">

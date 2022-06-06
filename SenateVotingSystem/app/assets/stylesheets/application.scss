@@ -15,7 +15,7 @@
   margin-top: 5%;
 }
 
-button {
+.button {
   width: 20%;
 }
 
@@ -34,8 +34,8 @@ button {
 
 .middle_margin{
   width:100%;
-  margin-top: 150px;
-  background: black;
+  margin-top: 20px;
+  background: darkgrey;
   height: 10px;
 }
 
@@ -52,61 +52,46 @@ button {
 }
 
 .vertical_line {
-  border-left: 4px solid black;
-  height: 300px;
-  top: 50px;
+  border-left: 4px solid darkgrey;
+  height: 120px;
+  top: 86px;
   width: 1px;
-
   position: fixed;
-  margin-left: 10%;
+  margin-left: 16%;
 }
 
 .vertical_line2 {
-  border-left: 4px solid black;
-  height: 300px;
-  top: 50px;
+  border-left: 4px solid darkgrey;
+  height: 120px;
+  top: 86px;
   width: 1px;
-
   position: fixed;
-  margin-left: 25%;
+  margin-left: 16%;
 }
 
 .vertical_line3 {
-  border-left: 4px solid black;
-  height: 300px;
-  top: 50px;
+  border-left: 4px solid darkgrey;
+  height: 120px;
+  top: 86px;
   width: 1px;
-
   position: fixed;
-  margin-left: 40%;
+  margin-left: 16%;
 }
 
 .vertical_line4 {
-  border-left: 4px solid black;
-  height: 300px;
-  top: 50px;
+  border-left: 4px solid darkgrey;
+  height: 120px;
+  top: 86px;
   width: 1px;
-
   position: fixed;
-  margin-left: 55%;
+  margin-left: 16%;
 }
 
 .vertical_line5 {
-  border-left: 4px solid black;
-  height: 300px;
-  top: 50px;
+  border-left: 4px solid darkgrey;
+  height: 120px;
+  top: 86px;
   width: 1px;
-
   position: fixed;
-  margin-left: 70%;
-}
-
-.vertical_line6 {
-  border-left: 4px solid black;
-  height: 300px;
-  top: 50px;
-  width: 1px;
-
-  position: fixed;
-  margin-left: 85%;
+  margin-left: 16%;
 }
