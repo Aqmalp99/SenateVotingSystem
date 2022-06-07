@@ -66,7 +66,7 @@ class BallotController < ApplicationController
     candidate_votes= candidate.totalvotes
     candidate_votes+= scoring
     candidate.update(:totalvotes => candidate_votes)
-    scoring=scoring * 0.75
+    scoring=(scoring * 0.75).round(2)
 
   end
 end

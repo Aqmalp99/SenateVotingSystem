@@ -28,3 +28,19 @@ end
 Then(/^I should be on the "([^"]*)" "([^"]*)" page$/) do |controller, page|
   expect(URI.parse(current_url).path).to eq("/#{controller}/#{page}")
 end
+
+Then(/^I should see "([^"]*)" within the "([^"]*)"$/) do |content, element|
+  within("#{element}") do
+    expect(page).to have_content("#{content}")
+  end
+end
+
+When(/^I check the first checkbox$/) do
+  within("table") do
+    first("input[type='checkbox']").set(true)
+  end
+end
+
+Then(/^The checkbox for "([^"]*)" should be checked$/) do |candidate_id|
+  expect(find_field("#{candidate_id}").checked?).to eq(true)
+end

@@ -10,8 +10,9 @@
       <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/SenateVotingSystem/tmp/cache" />
     </content>
-    <orderEntry type="jdk" jdkName="RVM: ruby-3.0.0" jdkType="RUBY_SDK" />
+    <orderEntry type="jdk" jdkName="Remote-rvm: ruby-3.0.0-p0" jdkType="RUBY_SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+
     <orderEntry type="library" scope="PROVIDED" name="actioncable (v7.0.3, RVM: ruby-3.0.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="actionmailbox (v7.0.3, RVM: ruby-3.0.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="actionmailer (v7.0.3, RVM: ruby-3.0.0) [gem]" level="application" />
