@@ -5,11 +5,26 @@
       height: 50px;
       width: 20%;
       margin-left: 40%;
+      border: 1px solid black;
   }
 
   input[type=number]{
+      text-align: center;
       margin-left: 0%;
-      width: 100%;
+      width: 35%;
+  }
+
+  /*removes the arrows from the number inputs*/
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+  }
+
+  /* Firefox */
+  input[type=number] {
+      -moz-appearance: textfield;
   }
 </style>
 
@@ -37,7 +52,7 @@
 
     <% @parties_candidates.keys.each do |party| %>
     <th>
-      <%= form.label party.to_sym, party %>
+      <%= form.label party.to_sym, party %><br>
       <%= form.number_field party %>
     </th>
     <% end %>
@@ -59,19 +74,19 @@
   <tbody>
 
     <% @parties_candidates.keys.each do |party| %>
-      <td>
+      <th>
         <table class="ui table">
           <% @parties_candidates[party].each do |candidate| %>
             <tr>
               <td>
-                  <%= form.label candidate.id,"#{candidate.first_name} #{candidate.surname}"  %>
+                  <%= form.label candidate.id,"#{candidate.first_name} #{candidate.surname}"  %><br>
                   <%= form.number_field candidate.id %>
 
               </td>
             </tr>
           <% end %>
         </table>
-      </td>
+      </th>
     <% end %>
 
 

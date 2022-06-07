@@ -51,10 +51,17 @@
   height: 40px;
 }
 
+table{
+  width: 100%
+}
 td{
-  border: 5px solid black;
+  border: 1px solid black;
+}
+
+th{
+  border: 5px solid #089624;
 }
 
 tr{
-  border: 1px solid green;
+  border: 1px solid purple;
 }
