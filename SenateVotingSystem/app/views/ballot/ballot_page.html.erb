@@ -70,8 +70,6 @@
 <div class="dynamic_vertical_line6"></div>
 <div class="dynamic_vertical_line7"></div>
 
-
-
 <%= form_with url: post_vote_path, method: :post do |form| %>
 <table class="ui table">
   <thead>
@@ -104,8 +102,26 @@
     <%= form.submit "Submit Below The Line Vote", class: "btn btn-primary btn-lg" %>
   <% end %>
 
+</head>
+<body>
 
+<button onclick="HideAboveLine()">Hide Above Line</button>
 
+<script>
+    function HideAboveLine() {
+        const tables = document.getElementsByClassName("ui table");
+        for (let i = 0; i < 1.; i++) {
+            if (tables[i].style.visibility === "hidden") {
+                tables[i].style.visibility = "visible";
+            } else {
+                tables[i].style.visibility = "hidden";
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
 
 
 
