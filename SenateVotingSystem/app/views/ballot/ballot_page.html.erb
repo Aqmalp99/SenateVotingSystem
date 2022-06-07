@@ -105,7 +105,8 @@
 </head>
 <body>
 
-<button onclick="HideAboveLine()">Hide Above Line</button>
+<button onclick="HideAboveLine()">Hide Above Line</button><br>
+<button onclick="HideBelowLine()">Hide Below Line</button>
 
 <script>
     function HideAboveLine() {
@@ -133,6 +134,43 @@
             document.getElementsByClassName("vertical_line6")[0].style.visibility = "hidden"
             document.getElementsByClassName("vertical_line7")[0].style.visibility = "hidden"
         }
+    }
+
+    function HideBelowLine(){
+        const tables = document.getElementsByClassName("ui table");
+        const BelowButton = document.getElementsByClassName("btn btn-primary btn-lg");
+        for(let i = 1; i < tables.length; i++) {
+            if (tables[i].style.visibility === "hidden") {
+                tables[i].style.visibility = "visible";
+                BelowButton[1].style.visibility = "visible";
+            } else {
+                tables[i].style.visibility = "hidden";
+                BelowButton[1].style.visibility = "hidden";
+            }
+        }
+
+        if (document.getElementsByClassName("dynamic_vertical_line1")[0].style.visibility === "hidden") {
+
+            document.getElementsByClassName("dynamic_vertical_line1")[0].style.visibility = "visible"
+            document.getElementsByClassName("dynamic_vertical_line2")[0].style.visibility = "visible"
+            document.getElementsByClassName("dynamic_vertical_line3")[0].style.visibility = "visible"
+            document.getElementsByClassName("dynamic_vertical_line4")[0].style.visibility = "visible"
+            document.getElementsByClassName("dynamic_vertical_line5")[0].style.visibility = "visible"
+            document.getElementsByClassName("dynamic_vertical_line6")[0].style.visibility = "visible"
+            document.getElementsByClassName("dynamic_vertical_line7")[0].style.visibility = "visible"
+
+        } else {
+            
+            document.getElementsByClassName("dynamic_vertical_line1")[0].style.visibility = "hidden"
+            document.getElementsByClassName("dynamic_vertical_line2")[0].style.visibility = "hidden"
+            document.getElementsByClassName("dynamic_vertical_line3")[0].style.visibility = "hidden"
+            document.getElementsByClassName("dynamic_vertical_line4")[0].style.visibility = "hidden"
+            document.getElementsByClassName("dynamic_vertical_line5")[0].style.visibility = "hidden"
+            document.getElementsByClassName("dynamic_vertical_line6")[0].style.visibility = "hidden"
+            document.getElementsByClassName("dynamic_vertical_line7")[0].style.visibility = "hidden"
+        }
+
+
     }
 </script>
 
