@@ -1,12 +1,5 @@
 <!doctype html>
 
-
-<html>
-  <body>
-    <div id="cloud-container"></div>
-  </body>
-</html>
-
 <style>
   input{
       height: 50px;
@@ -54,23 +47,7 @@
   <%= form.submit "Submit Above The Line Vote", class: "btn btn-primary btn-lg" %>
 <% end %>
 
-<div class="vertical_line"></div>
-<div class="vertical_line line1"></div>
-<div class="vertical_line line2"></div>
-<div class="vertical_line line3"></div>
-<div class="vertical_line line4"></div>
-<div class="vertical_line line5"></div>
-<div class="vertical_line line6"></div>
-
 <div class="middle_margin"></div>
-
-<div class="dynamic_vertical_line"></div>
-<div class="dynamic_vertical_line line1"></div>
-<div class="dynamic_vertical_line line2"></div>
-<div class="dynamic_vertical_line line3"></div>
-<div class="dynamic_vertical_line line4"></div>
-<div class="dynamic_vertical_line line5"></div>
-<div class="dynamic_vertical_line line6"></div>
 
 <%= form_with url: post_vote_path, method: :post do |form| %>
 <table class="ui table">
@@ -121,16 +98,9 @@
         if (tables[0].style.visibility === "hidden") {
             tables[0].style.visibility = "visible";
             AboveButton[0].style.visibility = "visible";
-            for(let l = 0; l < 7; l++){
-                document.getElementsByClassName("vertical_line")[l].style.visibility = "visible"
-            }
         } else {
             tables[0].style.visibility = "hidden";
             AboveButton[0].style.visibility = "hidden";
-            for(let l = 0; l < 7; l++){
-                document.getElementsByClassName("vertical_line")[l].style.visibility = "hidden"
-            }
-
         }
     }
 
@@ -144,17 +114,6 @@
             } else {
                 tables[i].style.visibility = "hidden";
                 BelowButton[1].style.visibility = "hidden";
-            }
-        }
-
-
-        if (document.getElementsByClassName("dynamic_vertical_line")[0].style.visibility === "hidden") {
-            for(let b = 0; b < 7; b++){
-                document.getElementsByClassName("dynamic_vertical_line")[b].style.visibility = "visible"
-            }
-        } else {
-            for(let b = 0; b < 7; b++){
-                document.getElementsByClassName("dynamic_vertical_line")[b].style.visibility = "hidden"
             }
         }
     }
