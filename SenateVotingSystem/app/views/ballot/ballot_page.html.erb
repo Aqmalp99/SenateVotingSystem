@@ -110,12 +110,28 @@
 <script>
     function HideAboveLine() {
         const tables = document.getElementsByClassName("ui table");
-        for (let i = 0; i < 1.; i++) {
-            if (tables[i].style.visibility === "hidden") {
-                tables[i].style.visibility = "visible";
-            } else {
-                tables[i].style.visibility = "hidden";
-            }
+        const AboveButton = document.getElementsByClassName("btn btn-primary btn-lg")
+
+        if (tables[0].style.visibility === "hidden") {
+            tables[0].style.visibility = "visible";
+            AboveButton[0].style.visibility = "visible";
+            document.getElementsByClassName("vertical_line1")[0].style.visibility = "visible"
+            document.getElementsByClassName("vertical_line2")[0].style.visibility = "visible"
+            document.getElementsByClassName("vertical_line3")[0].style.visibility = "visible"
+            document.getElementsByClassName("vertical_line4")[0].style.visibility = "visible"
+            document.getElementsByClassName("vertical_line5")[0].style.visibility = "visible"
+            document.getElementsByClassName("vertical_line6")[0].style.visibility = "visible"
+            document.getElementsByClassName("vertical_line7")[0].style.visibility = "visible"
+        } else {
+            tables[0].style.visibility = "hidden";
+            AboveButton[0].style.visibility = "hidden";
+            document.getElementsByClassName("vertical_line1")[0].style.visibility = "hidden"
+            document.getElementsByClassName("vertical_line2")[0].style.visibility = "hidden"
+            document.getElementsByClassName("vertical_line3")[0].style.visibility = "hidden"
+            document.getElementsByClassName("vertical_line4")[0].style.visibility = "hidden"
+            document.getElementsByClassName("vertical_line5")[0].style.visibility = "hidden"
+            document.getElementsByClassName("vertical_line6")[0].style.visibility = "hidden"
+            document.getElementsByClassName("vertical_line7")[0].style.visibility = "hidden"
         }
     }
 </script>
