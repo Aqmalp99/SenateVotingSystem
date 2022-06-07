@@ -1,33 +1,46 @@
-<h1>Set Candidate Grouping Order</h1>
-<h2>Other Candidates in <%= @candidate.party %></h2>
-<table>
-  <thead>
-  <tr>
-    <th>Candidate</th>
-    <th>Party</th>
-    <th>Party Order</th>
-  </tr>
-  </thead>
-  <tbody>
-  <% if @other_candidates.nil? || @other_candidates.length == 0 %>
-    <tr>
-      <td colspan="3">
-        There are no other candidates in the party grouping.
-      </td>
-    </tr>
-  <% else %>
-    <% @other_candidates.each do |candidate| %>
-      <tr>
-        <td><%= candidate.first_name.to_s + ' ' + candidate.surname.to_s %></td>
-        <td><%= candidate.party %></td>
-        <td><%= candidate.order %></td>
-      </tr>
-    <% end %>
-  <% end %>
-  </tbody>
-</table>
-<div>
-  <%= form.label :order, 'Order:' %>
-  <%= form.number_field :order, min: 1 %>
+<div class="flex-container">
+  <h1>Set Candidate Grouping Order</h1>
 </div>
-<%= submit_tag 'Confirm' %>
+<div class="flex-container">
+  <h2>Other Candidates in <%= @candidate.party %>:</h2>
+</div>
+
+<section class="flex-container">
+  <div class="other-candidates">
+    <table class="ui table">
+      <thead>
+      <tr>
+        <th style="text-align: center" >Candidate</th>
+        <th style="text-align: center">Party</th>
+        <th style="text-align: center">Party Order</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% if @other_candidates.nil? || @other_candidates.length == 0 %>
+        <tr>
+          <td colspan="3" style="text-align: center">
+            There are no other candidates in the party grouping.
+          </td>
+        </tr>
+      <% else %>
+        <% @other_candidates.each do |candidate| %>
+          <tr>
+            <td><%= candidate.first_name.to_s + ' ' + candidate.surname.to_s %></td>
+            <td><%= candidate.party %></td>
+            <td><%= candidate.order %></td>
+          </tr>
+        <% end %>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</section>
+<div class="flex-container">
+  <div class="set-order">
+    <%= form.label :order, 'Set Grouping Order:', class: "order-label" %>
+    <%= form.number_field :order, min: 1, class: "order-input" %>
+  </div>
+</div>
+<div class="flex-container confirm">
+  <%= submit_tag 'Confirm', class: "btn-lg btn-outline-primary" %>
+</div>
