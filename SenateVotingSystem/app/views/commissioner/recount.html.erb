@@ -1,0 +1,45 @@
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="<%= admin_voting_results_path %>">Electoral Commissioner</a>
+  <div>
+    <%= link_to add_candidates_path, class: "btn btn-outline-primary" do %>
+      <i>Add Candidate</i>
+    <%end %>
+    <%= link_to recount_path, class: "btn btn-outline-primary" do %>
+      <i>Recount</i>
+    <%end %>
+    <%= link_to root_path, class: "btn btn-outline-danger" do %>
+      <i >Logout</i>
+    <%end %>
+  </div>
+</nav>
+
+<h1>Order Recount</h1>
+<h2>Exclude Candidates from Recount:</h2>
+
+<%= form_with url: order_recount_path, method: :post do |form|%>
+  <table>
+    <thead>
+      <tr>
+        <th>Candidate</th>
+        <th>Party</th>
+        <th>Votes</th>
+        <th>Select</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @candidates.each do |candidate| %>
+        <tr>
+          <td><%= candidate.first_name + ' ' + candidate.surname %></td>
+          <td><%= candidate.party %></td>
+          <td><%= candidate.totalvotes %></td>
+          <% if candidate.excluded == true %>
+            <td><%= form.check_box "#{candidate.id}".to_s, checked: true %></td>
+          <% else %>
+            <td><%= form.check_box "#{candidate.id}".to_s %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= submit_tag 'Confirm Recount' %>
+<% end %>

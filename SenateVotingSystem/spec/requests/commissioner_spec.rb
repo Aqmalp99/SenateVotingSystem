@@ -17,4 +17,17 @@ RSpec.describe "Commissioners", type: :request do
       expect(topCandidates).to eq(Candidate.order(totalvotes: :desc).limit(10))
     end
   end
+
+  describe 'GET #recount for commissioner' do
+    it 'renders the view to order a recount and exclude candidates' do
+      get '/admin/recount'
+      expect(response).to have_http_status(200)
+    end
+
+    it 'returns candidates in order of least votes to most votes' do
+      get '/admin/recount'
+      ordered_candidates = assigns(:candidates)
+      expect(ordered_candidates).to eq(Candidate.order(:totalvotes))
+    end
+  end
 end
