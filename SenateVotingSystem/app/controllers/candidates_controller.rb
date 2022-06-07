@@ -1,7 +1,4 @@
 class CandidatesController < ApplicationController
-  def index
-    redirect_to '/candidates/add'
-  end
 
   def add
     session[:candidate_params] ||= {}
