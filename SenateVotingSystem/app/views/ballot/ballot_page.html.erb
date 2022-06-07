@@ -41,11 +41,10 @@
 
 <form id="Radio">
   <p>Please choose above or below the line</p>
-  <input type="radio" id="Above" name="AboveOrBelow" value="Above">
   <label for="Above">Above the line</label>
-  <input type="radio" id="Below" name="AboveOrBelow" value="Below">
+  <input type="radio" id="Above" name="AboveOrBelow" value="Above"><br>
   <label for="Below">Below the line</label>
-
+  <input type="radio" id="Below" name="AboveOrBelow" value="Below">
 </form>
 
 <% if flash.any? %>
@@ -121,8 +120,8 @@
     }
 </script>
 
-<button onclick="HideAboveLine()">Hide Above Line</button><br>
-<button onclick="HideBelowLine()">Hide Below Line</button>
+<button onclick="HideAboveLine()">Show Above Line</button><br>
+<button onclick="HideBelowLine()">Show Below Line</button>
 
 <script>
     /*Used to toggle on either above or below the line*/
