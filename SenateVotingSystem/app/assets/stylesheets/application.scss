@@ -15,7 +15,7 @@
   margin-top: 5%;
 }
 
-button {
+.button {
   width: 20%;
 }
 
@@ -34,8 +34,8 @@ button {
 
 .middle_margin{
   width:100%;
-  margin-top: 150px;
-  background: black;
+  margin-top: 20px;
+  background: darkgrey;
   height: 10px;
 }
 
@@ -52,60 +52,62 @@ button {
 }
 
 .vertical_line {
-  border-left: 4px solid black;
-  height: 300px;
-  top: 50px;
+  border-left: 4px solid darkgrey;
+  height: 140px;
+  top: 86px;
   width: 1px;
-
-  position: fixed;
-  margin-left: 10%;
+  margin-left: 0;
+  position: absolute;
 }
 
-.vertical_line2 {
-  border-left: 4px solid black;
-  height: 300px;
-  top: 50px;
-  width: 1px;
+.vertical_line.line1{margin-left: 16%};
+.vertical_line.line2{margin-left: 32.8%};
+.vertical_line.line3{margin-left: 49.5%};
+.vertical_line.line4{margin-left: 65.1%};
+.vertical_line.line5{margin-left: 81.9%};
+.vertical_line.line6{margin-left: 99.7%};
 
-  position: fixed;
-  margin-left: 25%;
+
+.dynamic_vertical_line {
+  border-left: 4px solid darkgrey;
+  overflow: auto;
+  height: calc(100% - 475px);
+  position: absolute;
+  top: 372px;
+  width: 1px;
+  margin-left: 0;
 }
 
-.vertical_line3 {
-  border-left: 4px solid black;
-  height: 300px;
-  top: 50px;
-  width: 1px;
+.dynamic_vertical_line.line1{margin-left: 16%};
+.dynamic_vertical_line.line2{margin-left: 32.8%};
+.dynamic_vertical_line.line3{margin-left: 49.5%};
+.dynamic_vertical_line.line4{margin-left: 65.1%};
+.dynamic_vertical_line.line5{margin-left: 81.9%};
+.dynamic_vertical_line.line6{margin-left: 99.7%};
 
-  position: fixed;
-  margin-left: 40%;
+
+
+
+
+
+//used to make the bottom margin lines scale properly regardless of window size
+html{
+  min-height:100%;/* make sure it is at least as tall as the viewport */
+  position:relative;
+}
+body{
+  height:100%; /* force the BODY element to match the height of the HTML element */
+}
+#cloud-container{
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  overflow:hidden;
+  z-index:-1; /* Remove this line if it's not going to be a background! */
 }
 
-.vertical_line4 {
-  border-left: 4px solid black;
-  height: 300px;
-  top: 50px;
-  width: 1px;
-
-  position: fixed;
-  margin-left: 55%;
-}
-
-.vertical_line5 {
-  border-left: 4px solid black;
-  height: 300px;
-  top: 50px;
-  width: 1px;
-
-  position: fixed;
-  margin-left: 70%;
-}
-
-.vertical_line6 {
-  border-left: 4px solid black;
-  height: 300px;
-  top: 50px;
-  width: 1px;
 
   position: fixed;
   margin-left: 85%;
@@ -153,3 +155,4 @@ button {
 .confirm {
   margin-top: 5%;
 }
+
