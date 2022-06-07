@@ -28,6 +28,9 @@
   }
 </style>
 
+
+
+
 <div class="ballot_header">
 
   <%= link_to voter_home_page_path, class: "btn btn-outline-primary" do %>
@@ -36,7 +39,14 @@
   <h1>Ballot Page</h1>
 </div>
 
+<form id="Radio">
+  <p>Please choose above or below the line</p>
+  <input type="radio" id="Above" name="AboveOrBelow" value="Above">
+  <label for="Above">Above the line</label>
+  <input type="radio" id="Below" name="AboveOrBelow" value="Below">
+  <label for="Below">Below the line</label>
 
+</form>
 
 <% if flash.any? %>
   <% flash.each do |type, msg| %>
@@ -61,8 +71,6 @@
 </table>
   <%= form.submit "Submit Above The Line Vote", class: "btn btn-primary btn-lg" %>
 <% end %>
-
-<div class="middle_margin"></div>
 
 <%= form_with url: post_vote_path, method: :post do |form| %>
 <table class="ui table">
@@ -99,10 +107,25 @@
 </head>
 <body>
 
+<script>
+    /* starts everything as display none */
+    const tables = document.getElementsByClassName("ui table");
+    const Button = document.getElementsByClassName("btn btn-primary btn-lg")
+
+    for(let i = 0; i < tables.length; i++){
+        tables[i].style.display = "none"
+    }
+
+    for(let i = 0; i < Button.length; i++){
+        Button[i].style.display = "none";
+    }
+</script>
+
 <button onclick="HideAboveLine()">Hide Above Line</button><br>
 <button onclick="HideBelowLine()">Hide Below Line</button>
 
 <script>
+    /*Used to toggle on either above or below the line*/
     function HideAboveLine() {
         const tables = document.getElementsByClassName("ui table");
         const AboveButton = document.getElementsByClassName("btn btn-primary btn-lg")
@@ -110,12 +133,12 @@
         for(let l = 0; l < 7; l++){
 
         }
-        if (tables[0].style.visibility === "hidden") {
-            tables[0].style.visibility = "visible";
-            AboveButton[0].style.visibility = "visible";
+        if (tables[0].style.display === "none") {
+            tables[0].style.display = "block";
+            AboveButton[0].style.display = "block";
         } else {
-            tables[0].style.visibility = "hidden";
-            AboveButton[0].style.visibility = "hidden";
+            tables[0].style.display = "none";
+            AboveButton[0].style.display = "none";
         }
     }
 
@@ -123,17 +146,16 @@
         const tables = document.getElementsByClassName("ui table");
         const BelowButton = document.getElementsByClassName("btn btn-primary btn-lg");
         for(let i = 1; i < tables.length; i++) {
-            if (tables[i].style.visibility === "hidden") {
-                tables[i].style.visibility = "visible";
-                BelowButton[1].style.visibility = "visible";
+            if (tables[i].style.display === "none") {
+                tables[i].style.display = "block";
+                BelowButton[1].style.display = "block";
             } else {
-                tables[i].style.visibility = "hidden";
-                BelowButton[1].style.visibility = "hidden";
+                tables[i].style.display = "none";
+                BelowButton[1].style.display = "none";
             }
         }
     }
 </script>
-
 </body>
 </html>
 

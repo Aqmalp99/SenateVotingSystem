@@ -32,13 +32,6 @@
   font-size: 20px;
 }
 
-.middle_margin{
-  width:100%;
-  margin-top: 20px;
-  background: darkgrey;
-  height: 10px;
-}
-
 .submit_vote{
   background: lightgreen;
   color: black;
@@ -62,6 +55,6 @@ th{
   border: 5px solid #089624;
 }
 
-tr{
-  border: 1px solid purple;
+legend{
+  align-items: center;
 }
