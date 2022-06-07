@@ -1,4 +1,6 @@
 <!doctype html>
+
+
 <html>
   <body>
     <div id="cloud-container"></div>
@@ -52,23 +54,23 @@
   <%= form.submit "Submit Above The Line Vote", class: "btn btn-primary btn-lg" %>
 <% end %>
 
-<div class="vertical_line1"></div>
-<div class="vertical_line2"></div>
-<div class="vertical_line3"></div>
-<div class="vertical_line4"></div>
-<div class="vertical_line5"></div>
-<div class="vertical_line6"></div>
-<div class="vertical_line7"></div>
+<div class="vertical_line"></div>
+<div class="vertical_line line1"></div>
+<div class="vertical_line line2"></div>
+<div class="vertical_line line3"></div>
+<div class="vertical_line line4"></div>
+<div class="vertical_line line5"></div>
+<div class="vertical_line line6"></div>
 
 <div class="middle_margin"></div>
 
-<div class="dynamic_vertical_line1"></div>
-<div class="dynamic_vertical_line2"></div>
-<div class="dynamic_vertical_line3"></div>
-<div class="dynamic_vertical_line4"></div>
-<div class="dynamic_vertical_line5"></div>
-<div class="dynamic_vertical_line6"></div>
-<div class="dynamic_vertical_line7"></div>
+<div class="dynamic_vertical_line"></div>
+<div class="dynamic_vertical_line line1"></div>
+<div class="dynamic_vertical_line line2"></div>
+<div class="dynamic_vertical_line line3"></div>
+<div class="dynamic_vertical_line line4"></div>
+<div class="dynamic_vertical_line line5"></div>
+<div class="dynamic_vertical_line line6"></div>
 
 <%= form_with url: post_vote_path, method: :post do |form| %>
 <table class="ui table">
@@ -113,26 +115,22 @@
         const tables = document.getElementsByClassName("ui table");
         const AboveButton = document.getElementsByClassName("btn btn-primary btn-lg")
 
+        for(let l = 0; l < 7; l++){
+
+        }
         if (tables[0].style.visibility === "hidden") {
             tables[0].style.visibility = "visible";
             AboveButton[0].style.visibility = "visible";
-            document.getElementsByClassName("vertical_line1")[0].style.visibility = "visible"
-            document.getElementsByClassName("vertical_line2")[0].style.visibility = "visible"
-            document.getElementsByClassName("vertical_line3")[0].style.visibility = "visible"
-            document.getElementsByClassName("vertical_line4")[0].style.visibility = "visible"
-            document.getElementsByClassName("vertical_line5")[0].style.visibility = "visible"
-            document.getElementsByClassName("vertical_line6")[0].style.visibility = "visible"
-            document.getElementsByClassName("vertical_line7")[0].style.visibility = "visible"
+            for(let l = 0; l < 7; l++){
+                document.getElementsByClassName("vertical_line")[l].style.visibility = "visible"
+            }
         } else {
             tables[0].style.visibility = "hidden";
             AboveButton[0].style.visibility = "hidden";
-            document.getElementsByClassName("vertical_line1")[0].style.visibility = "hidden"
-            document.getElementsByClassName("vertical_line2")[0].style.visibility = "hidden"
-            document.getElementsByClassName("vertical_line3")[0].style.visibility = "hidden"
-            document.getElementsByClassName("vertical_line4")[0].style.visibility = "hidden"
-            document.getElementsByClassName("vertical_line5")[0].style.visibility = "hidden"
-            document.getElementsByClassName("vertical_line6")[0].style.visibility = "hidden"
-            document.getElementsByClassName("vertical_line7")[0].style.visibility = "hidden"
+            for(let l = 0; l < 7; l++){
+                document.getElementsByClassName("vertical_line")[l].style.visibility = "hidden"
+            }
+
         }
     }
 
@@ -149,28 +147,16 @@
             }
         }
 
-        if (document.getElementsByClassName("dynamic_vertical_line1")[0].style.visibility === "hidden") {
 
-            document.getElementsByClassName("dynamic_vertical_line1")[0].style.visibility = "visible"
-            document.getElementsByClassName("dynamic_vertical_line2")[0].style.visibility = "visible"
-            document.getElementsByClassName("dynamic_vertical_line3")[0].style.visibility = "visible"
-            document.getElementsByClassName("dynamic_vertical_line4")[0].style.visibility = "visible"
-            document.getElementsByClassName("dynamic_vertical_line5")[0].style.visibility = "visible"
-            document.getElementsByClassName("dynamic_vertical_line6")[0].style.visibility = "visible"
-            document.getElementsByClassName("dynamic_vertical_line7")[0].style.visibility = "visible"
-
+        if (document.getElementsByClassName("dynamic_vertical_line")[0].style.visibility === "hidden") {
+            for(let b = 0; b < 7; b++){
+                document.getElementsByClassName("dynamic_vertical_line")[b].style.visibility = "visible"
+            }
         } else {
-            
-            document.getElementsByClassName("dynamic_vertical_line1")[0].style.visibility = "hidden"
-            document.getElementsByClassName("dynamic_vertical_line2")[0].style.visibility = "hidden"
-            document.getElementsByClassName("dynamic_vertical_line3")[0].style.visibility = "hidden"
-            document.getElementsByClassName("dynamic_vertical_line4")[0].style.visibility = "hidden"
-            document.getElementsByClassName("dynamic_vertical_line5")[0].style.visibility = "hidden"
-            document.getElementsByClassName("dynamic_vertical_line6")[0].style.visibility = "hidden"
-            document.getElementsByClassName("dynamic_vertical_line7")[0].style.visibility = "hidden"
+            for(let b = 0; b < 7; b++){
+                document.getElementsByClassName("dynamic_vertical_line")[b].style.visibility = "hidden"
+            }
         }
-
-
     }
 </script>
 
