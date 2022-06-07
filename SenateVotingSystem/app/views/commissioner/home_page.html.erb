@@ -4,8 +4,8 @@
   <%= link_to add_candidates_path, class: "btn btn-outline-primary" do %>
   <i>Add Candidate</i>
   <%end %>
-  <%= link_to admin_voting_results_path, class: "btn btn-outline-primary" do %>
-   <i>Exclude Candidate</i>
+  <%= link_to recount_path, class: "btn btn-outline-primary" do %>
+   <i>Recount</i>
   <%end %>
   <%= link_to root_path, class: "btn btn-outline-danger" do %>
     <i >Logout</i>
@@ -13,6 +13,18 @@
   </div>
 </nav>
 
+
+<h1 style="text-align: center">Dashboard</h1>
+<br>
+
+<% if flash.any? %>
+  <% flash.each do |key, value| %>
+    <% print "#{flash_class(key)}\n" %>
+    <div class="<%= flash_class(key) %>">
+      <%= value %>
+    </div>
+  <% end %>
+<% end %>
 
 <div><%= pie_chart @party_votes %></div>
 
