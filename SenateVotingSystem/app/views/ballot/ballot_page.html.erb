@@ -30,14 +30,17 @@
 
 
 
-
-<div class="ballot_header">
-
+<nav class="navbar navbar-light bg-light" >
   <%= link_to voter_home_page_path, class: "btn btn-outline-primary" do %>
     <i>Back</i>
   <%end %>
-  <h1>Ballot Page</h1>
-</div>
+  <h1 style="text-align: center; font-weight: bold">Ballot Page</h1>
+
+    <%= link_to root_path, class: "btn btn-outline-danger" do %>
+      <i>Logout</i>
+    <%end %>
+  </div>
+</nav>
 
 <form id="Radio">
   <p>Please choose above or below the line</p>
