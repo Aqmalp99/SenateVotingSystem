@@ -32,13 +32,6 @@
   font-size: 20px;
 }
 
-.middle_margin{
-  width:100%;
-  margin-top: 20px;
-  background: darkgrey;
-  height: 10px;
-}
-
 .submit_vote{
   background: lightgreen;
   color: black;
@@ -51,106 +44,24 @@
   height: 40px;
 }
 
-.vertical_line {
-  border-left: 4px solid darkgrey;
-  height: 140px;
-  top: 86px;
-  width: 1px;
-  margin-left: 0;
-  position: absolute;
+table{
+  width: 100%
+}
+td{
+  border: 1px solid black;
 }
 
-.vertical_line.line1{margin-left: 16%};
-.vertical_line.line2{margin-left: 32.8%};
-.vertical_line.line3{margin-left: 49.5%};
-.vertical_line.line4{margin-left: 65.1%};
-.vertical_line.line5{margin-left: 81.9%};
-.vertical_line.line6{margin-left: 99.7%};
-
-
-.dynamic_vertical_line {
-  border-left: 4px solid darkgrey;
-  overflow: auto;
-  height: calc(100% - 475px);
-  position: absolute;
-  top: 372px;
-  width: 1px;
-  margin-left: 0;
+th{
+  border: 5px solid #089624;
 }
 
-.dynamic_vertical_line.line1{margin-left: 16%};
-.dynamic_vertical_line.line2{margin-left: 32.8%};
-.dynamic_vertical_line.line3{margin-left: 49.5%};
-.dynamic_vertical_line.line4{margin-left: 65.1%};
-.dynamic_vertical_line.line5{margin-left: 81.9%};
-.dynamic_vertical_line.line6{margin-left: 99.7%};
-
-
-
-
-
-
-//used to make the bottom margin lines scale properly regardless of window size
-html{
-  min-height:100%;/* make sure it is at least as tall as the viewport */
-  position:relative;
-}
-body{
-  height:100%; /* force the BODY element to match the height of the HTML element */
-}
-#cloud-container{
-  position:absolute;
-  top:0;
-  bottom:0;
-  left:0;
-  right:0;
-  overflow:hidden;
-  z-index:-1; /* Remove this line if it's not going to be a background! */
-}
-
-
-
-
-.flex-container {
-  display: flex;
-  justify-content: center;
-}
-
-.other-candidates {
-  width: 80%;
-  margin-top: 2%;
-  margin-bottom: 5%;
-}
-
-.all-candidates {
-  width: 50%;
-  max-height: 70vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-.btn-lg {
-  padding: 0.375rem 3rem;
-  font-size: 1rem;
-}
-
-.set-order {
-  display: flex;
-  justify-content: center;
+legend{
   align-items: center;
-  width: 50%;
 }
 
-.order-label {
-  font-size: 1.5rem;
+#Radio {
+  border-radius: 10px;
+  padding: 20px;
+  width: 500px;
+  background-color: green;
 }
-
-.order-input {
-  width: 20%;
-  margin-left: 2%;
-}
-
-.confirm {
-  margin-top: 5%;
-}
-

@@ -1,24 +1,35 @@
 <!doctype html>
 
-
-<html>
-  <body>
-    <div id="cloud-container"></div>
-  </body>
-</html>
-
 <style>
   input{
       height: 50px;
       width: 20%;
       margin-left: 40%;
+      border: 1px solid black;
   }
 
   input[type=number]{
+      text-align: center;
       margin-left: 0%;
-      width: 100%;
+      width: 35%;
+  }
+
+  /*removes the arrows from the number inputs*/
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+  }
+
+  /* Firefox */
+  input[type=number] {
+      -moz-appearance: textfield;
   }
 </style>
+
+
+
 
 <div class="ballot_header">
 
@@ -28,7 +39,13 @@
   <h1>Ballot Page</h1>
 </div>
 
-
+<form id="Radio">
+  <p>Please choose above or below the line</p>
+  <label for="Above">Above the line</label>
+  <input type="radio" id="Above" name="AboveOrBelow" value="Above"><br>
+  <label for="Below">Below the line</label>
+  <input type="radio" id="Below" name="AboveOrBelow" value="Below">
+</form>
 
 <% if flash.any? %>
   <% flash.each do |type, msg| %>
@@ -44,7 +61,7 @@
 
     <% @parties_candidates.keys.each do |party| %>
     <th>
-      <%= form.label party.to_sym, party %>
+      <%= form.label party.to_sym, party %><br>
       <%= form.number_field party %>
     </th>
     <% end %>
@@ -53,24 +70,6 @@
 </table>
   <%= form.submit "Submit Above The Line Vote", class: "btn btn-primary btn-lg" %>
 <% end %>
-
-<div class="vertical_line"></div>
-<div class="vertical_line line1"></div>
-<div class="vertical_line line2"></div>
-<div class="vertical_line line3"></div>
-<div class="vertical_line line4"></div>
-<div class="vertical_line line5"></div>
-<div class="vertical_line line6"></div>
-
-<div class="middle_margin"></div>
-
-<div class="dynamic_vertical_line"></div>
-<div class="dynamic_vertical_line line1"></div>
-<div class="dynamic_vertical_line line2"></div>
-<div class="dynamic_vertical_line line3"></div>
-<div class="dynamic_vertical_line line4"></div>
-<div class="dynamic_vertical_line line5"></div>
-<div class="dynamic_vertical_line line6"></div>
 
 <%= form_with url: post_vote_path, method: :post do |form| %>
 <table class="ui table">
@@ -82,19 +81,19 @@
   <tbody>
 
     <% @parties_candidates.keys.each do |party| %>
-      <td>
+      <th>
         <table class="ui table">
           <% @parties_candidates[party].each do |candidate| %>
             <tr>
               <td>
-                  <%= form.label candidate.id,"#{candidate.first_name} #{candidate.surname}"  %>
+                  <%= form.label candidate.id,"#{candidate.first_name} #{candidate.surname}"  %><br>
                   <%= form.number_field candidate.id %>
 
               </td>
             </tr>
           <% end %>
         </table>
-      </td>
+      </th>
     <% end %>
 
 
@@ -107,10 +106,25 @@
 </head>
 <body>
 
-<button onclick="HideAboveLine()">Hide Above Line</button><br>
-<button onclick="HideBelowLine()">Hide Below Line</button>
+<script>
+    /* starts everything as display none */
+    const tables = document.getElementsByClassName("ui table");
+    const Button = document.getElementsByClassName("btn btn-primary btn-lg")
+
+    for(let i = 0; i < tables.length; i++){
+        tables[i].style.display = "none"
+    }
+
+    for(let i = 0; i < Button.length; i++){
+        Button[i].style.display = "none";
+    }
+</script>
+
+<button onclick="HideAboveLine()">Show Above Line</button><br>
+<button onclick="HideBelowLine()">Show Below Line</button>
 
 <script>
+    /*Used to toggle on either above or below the line*/
     function HideAboveLine() {
         const tables = document.getElementsByClassName("ui table");
         const AboveButton = document.getElementsByClassName("btn btn-primary btn-lg")
@@ -118,19 +132,12 @@
         for(let l = 0; l < 7; l++){
 
         }
-        if (tables[0].style.visibility === "hidden") {
-            tables[0].style.visibility = "visible";
-            AboveButton[0].style.visibility = "visible";
-            for(let l = 0; l < 7; l++){
-                document.getElementsByClassName("vertical_line")[l].style.visibility = "visible"
-            }
+        if (tables[0].style.display === "none") {
+            tables[0].style.display = "block";
+            AboveButton[0].style.display = "block";
         } else {
-            tables[0].style.visibility = "hidden";
-            AboveButton[0].style.visibility = "hidden";
-            for(let l = 0; l < 7; l++){
-                document.getElementsByClassName("vertical_line")[l].style.visibility = "hidden"
-            }
-
+            tables[0].style.display = "none";
+            AboveButton[0].style.display = "none";
         }
     }
 
@@ -138,28 +145,16 @@
         const tables = document.getElementsByClassName("ui table");
         const BelowButton = document.getElementsByClassName("btn btn-primary btn-lg");
         for(let i = 1; i < tables.length; i++) {
-            if (tables[i].style.visibility === "hidden") {
-                tables[i].style.visibility = "visible";
-                BelowButton[1].style.visibility = "visible";
+            if (tables[i].style.display === "none") {
+                tables[i].style.display = "block";
+                BelowButton[1].style.display = "block";
             } else {
-                tables[i].style.visibility = "hidden";
-                BelowButton[1].style.visibility = "hidden";
-            }
-        }
-
-
-        if (document.getElementsByClassName("dynamic_vertical_line")[0].style.visibility === "hidden") {
-            for(let b = 0; b < 7; b++){
-                document.getElementsByClassName("dynamic_vertical_line")[b].style.visibility = "visible"
-            }
-        } else {
-            for(let b = 0; b < 7; b++){
-                document.getElementsByClassName("dynamic_vertical_line")[b].style.visibility = "hidden"
+                tables[i].style.display = "none";
+                BelowButton[1].style.display = "none";
             }
         }
     }
 </script>
-
 </body>
 </html>
 
