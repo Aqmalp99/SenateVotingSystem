@@ -42,9 +42,9 @@
 <form id="Radio">
   <p>Please choose above or below the line</p>
   <label for="Above">Above the line</label>
-  <input type="radio" id="Above" name="AboveOrBelow" value="Above"><br>
+  <input type="radio" id="Above" name="AboveOrBelow" value="Above" onclick="ShowAboveLine()"><br>
   <label for="Below">Below the line</label>
-  <input type="radio" id="Below" name="AboveOrBelow" value="Below">
+  <input type="radio" id="Below" name="AboveOrBelow" value="Below" onclick="ShowBelowLine()">
 </form>
 
 <% if flash.any? %>
@@ -56,11 +56,11 @@
 <% end %>
 <br>
 <%= form_with url: post_vote_path, method: :post do |form| %>
-<table class="ui table">
+<table class="ballot_table">
   <thead>
 
     <% @parties_candidates.keys.each do |party| %>
-    <th>
+    <th class="thbp">
       <%= form.label party.to_sym, party %><br>
       <%= form.number_field party %>
     </th>
@@ -72,7 +72,7 @@
 <% end %>
 
 <%= form_with url: post_vote_path, method: :post do |form| %>
-<table class="ui table">
+<table class="ballot_table">
   <thead>
     <% @parties_candidates.keys.each do |party| %>
       <th><%= party %></th>
@@ -81,11 +81,11 @@
   <tbody>
 
     <% @parties_candidates.keys.each do |party| %>
-      <th>
-        <table class="ui table">
+      <th class="thbp">
+        <table class="ballot_table">
           <% @parties_candidates[party].each do |candidate| %>
-            <tr>
-              <td>
+            <tr class="trbp">
+              <td class="tdbp">
                   <%= form.label candidate.id,"#{candidate.first_name} #{candidate.surname}"  %><br>
                   <%= form.number_field candidate.id %>
 
@@ -108,7 +108,7 @@
 
 <script>
     /* starts everything as display none */
-    const tables = document.getElementsByClassName("ui table");
+    const tables = document.getElementsByClassName("ballot_table");
     const Button = document.getElementsByClassName("btn btn-primary btn-lg")
 
     for(let i = 0; i < tables.length; i++){
@@ -120,13 +120,13 @@
     }
 </script>
 
-<button onclick="HideAboveLine()">Show Above Line</button><br>
-<button onclick="HideBelowLine()">Show Below Line</button>
+<button onclick="ShowAboveLine()">Show Above Line</button><br>
+<button onclick="ShowBelowLine()">Show Below Line</button>
 
 <script>
     /*Used to toggle on either above or below the line*/
-    function HideAboveLine() {
-        const tables = document.getElementsByClassName("ui table");
+    function ShowAboveLine() {
+        const tables = document.getElementsByClassName("ballot_table");
         const AboveButton = document.getElementsByClassName("btn btn-primary btn-lg")
 
         for(let l = 0; l < 7; l++){
@@ -139,10 +139,12 @@
             tables[0].style.display = "none";
             AboveButton[0].style.display = "none";
         }
+        const Radio = document.getElementById("Radio");
+        Radio.style.display = "none"
     }
 
-    function HideBelowLine(){
-        const tables = document.getElementsByClassName("ui table");
+    function ShowBelowLine(){
+        const tables = document.getElementsByClassName("ballot_table");
         const BelowButton = document.getElementsByClassName("btn btn-primary btn-lg");
         for(let i = 1; i < tables.length; i++) {
             if (tables[i].style.display === "none") {
@@ -153,6 +155,9 @@
                 BelowButton[1].style.display = "none";
             }
         }
+
+        const Radio = document.getElementById("Radio");
+        Radio.style.display = "none"
     }
 </script>
 </body>

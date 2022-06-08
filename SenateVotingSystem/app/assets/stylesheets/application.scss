@@ -44,19 +44,19 @@
   height: 40px;
 }
 
-table{
+.ballot_table{
   width: 100%
 }
-td{
-  border: 1px solid black;
+.trbp{
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
-th{
-  border: 5px solid #089624;
-}
-
-legend{
-  align-items: center;
+.thbp{
+  border-left: 5px solid #089624;
+  border-right: 5px solid #089624;
+  border-bottom: 1px solid lightgrey;
+  border-top: 1px solid lightgrey;
 }
 
 #Radio {
