@@ -14,7 +14,7 @@ RSpec.describe "Commissioners", type: :request do
     it 'should return top 10 candidates in descending order' do
       get '/admin/voting-results'
       topCandidates= assigns(:candidates)
-      expect(topCandidates).to eq(Candidate.order(totalvotes: :desc).limit(10))
+      expect(topCandidates).to eq(Candidate.where(:excluded => false).order(totalvotes: :desc).limit(10))
     end
   end
 

@@ -10,21 +10,10 @@ Feature: Add a Candidate to the Ballot
       | Scott      | Morrison  | Liberal National Party | 2     |
       | Penny      | Wong      | Australian Labor Party | 2     |
 
-
-  Scenario Outline: Submit Candidate Personal Information
-    Given I am on the "candidates" "add" page
-    When I fill in the "candidate_first_name" field with <first_name>
-    And I fill in the "candidate_surname" field with <surname>
-    And I fill in the "candidate_party" field with <party>
-    When I click "Next"
-    Then I should see "Penny Wong" before "Kevin Rudd"
-
-    Examples:
-      | first_name | surname  | party                   |
-      | Anthony    | Albanese | Australian Labor Party  |
+    
 
   Scenario Outline: Submit Candidate Form First Page Error (sad path)
-    Given I am on the "candidates" "add" page
+    Given I am on the "admin" "add-candidate" page
     When I fill in the "candidate_first_name" field with <first_name>
     And I fill in the "candidate_surname" field with <surname>
     When I click "Next"
@@ -35,7 +24,7 @@ Feature: Add a Candidate to the Ballot
       | Anthony    | Albanese |
 
   Scenario Outline: See Other Candidates in Ballot
-    Given I am on the "candidates" "add" page
+    Given I am on the "admin" "add-candidate" page
     When I fill in the "candidate_first_name" field with <first_name>
     And I fill in the "candidate_surname" field with <surname>
     And I fill in the "candidate_party" field with <party>
@@ -47,7 +36,7 @@ Feature: Add a Candidate to the Ballot
       | Anthony    | Albanese | Australian Labor Party  |
 
   Scenario Outline: No Other Candidates in Ballot
-    Given I am on the "candidates" "add" page
+    Given I am on the "admin" "add-candidate" page
     When I fill in the "candidate_first_name" field with <first_name>
     And I fill in the "candidate_surname" field with <surname>
     And I fill in the "candidate_party" field with <party>
@@ -59,7 +48,7 @@ Feature: Add a Candidate to the Ballot
       | Adam       | Bandt    | The Greens  |
 
   Scenario Outline: Submit Candidate Form Second Page Error (sad path)
-    Given I am on the "candidates" "add" page
+    Given I am on the "admin" "add-candidate" page
     When I fill in the "candidate_first_name" field with <first_name>
     And I fill in the "candidate_surname" field with <surname>
     And I fill in the "candidate_party" field with <party>
@@ -72,7 +61,7 @@ Feature: Add a Candidate to the Ballot
       | Anthony    | Albanese | Australian Labor Party  |
 
   Scenario Outline: Submit Candidate Form
-    Given I am on the "candidates" "add" page
+    Given I am on the "admin" "add-candidate" page
     When I fill in the "candidate_first_name" field with <first_name>
     And I fill in the "candidate_surname" field with <surname>
     And I fill in the "candidate_party" field with <party>
@@ -88,4 +77,4 @@ Feature: Add a Candidate to the Ballot
   Scenario: NavBar should link to Add Candidate Form
     Given I am on the "admin" "voting-results" page
     When I find and select "Add Candidate"
-    Then I should be on the "candidates" "add" page
+    Then I should be on the "admin" "add-candidate" page
