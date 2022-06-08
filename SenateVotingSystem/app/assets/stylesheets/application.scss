@@ -44,13 +44,21 @@
   height: 40px;
 }
 
-table{
+.ballot_table{
   width: 100%
 }
 
+.trbp, .tdbp{
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
 
-legend{
-  align-items: center;
+
+.thbp{
+  border-left: 5px solid #089624;
+  border-right: 5px solid #089624;
+  border-bottom: 1px solid lightgrey;
+  border-top: 1px solid lightgrey;
 }
 
 #Radio {
@@ -58,45 +66,4 @@ legend{
   padding: 20px;
   width: 500px;
   background-color: green;
-}
-
-.flex-container {
-  display: flex;
-  justify-content: center;
-}
-
-.other-candidates {
-  width: 80%;
-  margin-top: 2%;
-  margin-bottom: 5%;
-}
-
-.all-candidates {
-  width: 50%;
-  max-height: 70vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-.btn-lg {
-  padding: 0.375rem 3rem;
-  font-size: 1rem;
-}
-
-.set-order {
-  display: flex;
-  justify-content: center;
-}
-
-.order-label {
-  font-size: 1.5rem;
-}
-
-.order-input {
-  width: 20%;
-  margin-left: 2%;
-}
-
-.confirm {
-  margin-top: 5%;
 }
