@@ -24,7 +24,6 @@ class BallotController < ApplicationController
         party_or_candidates_and_votes[key]=params[key].to_i
       end
     end
-    scoring=100
 
     party_or_candidates_and_votes=party_or_candidates_and_votes.sort_by {|_key, value| value}
     counter=1
@@ -38,6 +37,7 @@ class BallotController < ApplicationController
 
 
     if params[:commit] == "Submit Above The Line Vote"
+      scoring=100
       if counter < 7
         return redirect_to voter_ballot_page_path, :notice => 'Invalid vote. You did not provide enough preferences'
       end
@@ -48,6 +48,7 @@ class BallotController < ApplicationController
         end
       end
     else
+      scoring=200
       if counter < 13
         return redirect_to voter_ballot_page_path, :notice => 'Invalid vote. You did not provide enough preferences'
       end
