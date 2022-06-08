@@ -1,5 +1,8 @@
 <nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="<%= admin_voting_results_path %>">Electoral Commissioner</a>
+  <%= link_to admin_voting_results_path, class: "btn btn-outline-primary" do %>
+    <i>Back</i>
+  <%end %>
+  <h1><pre style="font-family: Sans-Serif; margin-top: 3%">                          Order Recount</pre></h1>
   <div>
     <%= link_to add_candidates_path, class: "btn btn-outline-primary" do %>
       <i>Add Candidate</i>
@@ -12,10 +15,8 @@
     <%end %>
   </div>
 </nav>
+<br><br>
 
-<div class="flex-container">
-  <h1>Order Recount</h1>
-</div>
 <div class="flex-container">
   <h2>Exclude Candidates from Recount:</h2>
 </div>
