@@ -1,6 +1,6 @@
 class CommissionerController < ApplicationController
   def home_page
-    allCandidates=Candidate.all
+    allCandidates=Candidate.where(:excluded => false)
     parties=[]
     allCandidates.each do |candidate|
       unless parties.include? candidate.party
@@ -10,10 +10,10 @@ class CommissionerController < ApplicationController
 
     @party_votes=Hash.new
     parties.each do |party|
-      @party_votes[party.to_sym]=Candidate.where(party: party).sum(:totalvotes)
+      @party_votes[party.to_sym]=Candidate.where(party: party).sum(:totalvotes).round(2)
     end
 
-    @candidates=Candidate.order(totalvotes: :desc).limit(10)
+    @candidates=Candidate.where(:excluded => false).order(totalvotes: :desc).limit(10)
   end
 
   def recount
