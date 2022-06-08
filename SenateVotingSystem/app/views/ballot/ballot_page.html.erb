@@ -59,7 +59,7 @@
 <% end %>
 <br>
 <%= form_with url: post_vote_path, method: :post do |form| %>
-<table class="ballot_table">
+<table class="ui table">
   <thead>
 
     <% @parties_candidates.keys.each do |party| %>
@@ -75,7 +75,7 @@
 <% end %>
 
 <%= form_with url: post_vote_path, method: :post do |form| %>
-<table class="ballot_table">
+<table class="ui table">
   <thead>
     <% @parties_candidates.keys.each do |party| %>
       <th><%= party %></th>
@@ -85,7 +85,7 @@
 
     <% @parties_candidates.keys.each do |party| %>
       <th class="thbp">
-        <table class="ballot_table">
+        <table class="ui table">
           <% @parties_candidates[party].each do |candidate| %>
             <tr class="trbp">
               <td class="tdbp">
@@ -111,7 +111,7 @@
 
 <script>
     /* starts everything as display none */
-    const tables = document.getElementsByClassName("ballot_table");
+    const tables = document.getElementsByClassName("ui table");
     const Button = document.getElementsByClassName("btn btn-primary btn-lg")
 
     for(let i = 0; i < tables.length; i++){
@@ -129,7 +129,7 @@
 <script>
     /*Used to toggle on either above or below the line*/
     function ShowAboveLine() {
-        const tables = document.getElementsByClassName("ballot_table");
+        const tables = document.getElementsByClassName("ui table");
         const AboveButton = document.getElementsByClassName("btn btn-primary btn-lg")
 
         for(let l = 0; l < 7; l++){
@@ -147,7 +147,7 @@
     }
 
     function ShowBelowLine(){
-        const tables = document.getElementsByClassName("ballot_table");
+        const tables = document.getElementsByClassName("ui table");
         const BelowButton = document.getElementsByClassName("btn btn-primary btn-lg");
         for(let i = 1; i < tables.length; i++) {
             if (tables[i].style.display === "none") {
